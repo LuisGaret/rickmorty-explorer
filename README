@@ -1,0 +1,4 @@
+#plugins:
+-tailwind
+npm install tailwindcss @tailwindcss/vite
+
