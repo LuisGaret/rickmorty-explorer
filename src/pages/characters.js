@@ -8,7 +8,7 @@ export const Main = async () => {
             ${characters.results.map(character => `
                 
                 <article>
-                    <img src="${character.image}" class="rounded-2xl">
+                    <img src="${character.image}" class="rounded-2xl shadow-2xl shadow-gray-700">
                     <h3 class="text-amber-50">${character.name}</h3>
                 </article>
             `).join('')}
