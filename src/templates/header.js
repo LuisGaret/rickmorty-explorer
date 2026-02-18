@@ -1,12 +1,13 @@
+import rickymortyLogo from './../assets/img/Rick_and_Morty.webp';
+
 export const Header = () => {    
     const view = `
-    <nav>
-        <ul class="grid grid-cols-2 text-center justify-center pt-1.5">
-            <li>
-                <a href="#" class="text-2xl text-stone-50">Rick y Morty</a>
-            </li>
-            <li>
-                <a href="#" class="text-2xl text-stone-50">Home</a>
+    <nav class="flex m-4 w-100% justify-center items-center">
+        <ul class=" text-center items-center">
+            <li class="">
+                <a href="#" class="">
+                    <img src="${rickymortyLogo}" class="w-80">
+                </a>
             </li>
         </ul>
     </nav>
