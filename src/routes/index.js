@@ -1,5 +1,7 @@
 import '../style.css'
 import { Header } from "../templates/header";
+import { main } from "../templates/main";
+import { footer } from "../templates/footer";
 
 
 export const route = async () => {   
