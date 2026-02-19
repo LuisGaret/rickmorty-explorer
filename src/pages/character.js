@@ -5,7 +5,7 @@ export const Character = async () => {
 
     const hash = getHash();
     const routeArray = hash.split('/');
-    const id = routeArray[2];
+    const id = routeArray[2]
     const character = await getData(id);
 
     const view = `

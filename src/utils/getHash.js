@@ -4,4 +4,3 @@ export const getHash = () =>
     .slice(1)
     .toLocaleLowerCase() || '/';
 
-    

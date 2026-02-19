@@ -16,16 +16,24 @@ const rutas = {
     '/page/:id': Characters
 };
 
+// evitar doble render
+let isRender = false;
 
-export const router = async () => {   
-    const header = null || document.querySelector('header');
-    const main = null || document.querySelector('main');
+export const router = async () => {
 
-    header.innerHTML = Header();    
+    if (isRender) return;
+    isRender = true;
+
+    const header = document.querySelector('header');
+    const main = document.querySelector('main');
+
+    header.innerHTML = Header();
 
     let hash = getHash();
-    let route =  resolveRoutes(hash);    
-    let render = rutas[route] ? rutas[route] : Error404;       
-    
+    let route = resolveRoutes(hash);
+    let render = rutas[route] || Error404;
+
     main.innerHTML = await render();
+
+    isRender = false;
 }

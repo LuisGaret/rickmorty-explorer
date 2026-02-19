@@ -1,13 +1,25 @@
 const API = "https://rickandmortyapi.com/api/character/";
+const cache = {};
 
-export const getData = async (edp = "") => {
-    const apiURL = `${API}${edp}`;
-        
+export const getData = async (endpoint = "") => {
+
+    if (cache[endpoint]) return cache[endpoint];
+
     try {
-        const response = await fetch(apiURL);
+        const response = await fetch(`${API}${endpoint}`);
+        
+
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+
         const data = await response.json();
+
+        cache[endpoint] = data;
+
         return data;
+
     } catch (error) {
-        console.log("fetch error: ", error);       
+        console.error("fetch error:", error);
     }
-}
+};

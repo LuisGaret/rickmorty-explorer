@@ -8,3 +8,4 @@ export const resolveRoutes = (route) => {
 
     return `/`;
 }
+
