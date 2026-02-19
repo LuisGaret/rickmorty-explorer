@@ -1,11 +1,12 @@
 import { getHash } from "../utils/getHash";
 import { getData } from "../utils/getData";
+import { NumRandom } from "../utils/numRandom";
 
 export const Characters = async () => {
     
     const hash = getHash();
     const routeArray = hash.split('/');
-    const page = routeArray[2] || 41;
+    const page = routeArray[2] || NumRandom();
     
     const characters = await getData(`?page=${page}`);
     
