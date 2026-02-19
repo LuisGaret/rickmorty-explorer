@@ -1,4 +1,4 @@
-import { route } from "./routes/index";
+import { router } from "./routes/index";
 
-window.addEventListener("load", route);
-window.addEventListener("hashchange", route);
+window.addEventListener("load", router);
+window.addEventListener("hashchange", router);
