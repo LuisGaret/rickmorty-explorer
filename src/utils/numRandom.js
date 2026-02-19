@@ -1,10 +1,7 @@
 export const NumRandom = () => {
-    let min = 1;
-    let max = 82;
-
+    let max = 42;
     let randomNumber = Math.floor(Math.random() * max);
     return randomNumber
-
 }
 
 
