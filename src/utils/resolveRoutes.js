@@ -1,7 +1,10 @@
 export const resolveRoutes = (route) => {
-    if (route.length <= 3) {
-        let validRoute = route === '/' ? route : '/:id';
-        return validRoute;
-    }
-    return `/${route}`;
+
+    const routeArray = route.split('/')
+    
+    if(route === '/') return '/';
+    if(routeArray[1] === 'character') return '/character/:id';
+    if(routeArray[1] === 'page') return '/page/:id';
+
+    return `/`;
 }

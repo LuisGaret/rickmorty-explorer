@@ -12,7 +12,8 @@ import { resolveRoutes } from "../utils/resolveRoutes.js";
 
 const rutas = {
     '/': Characters,
-    '/:id' : Character,
+    '/character/:id' : Character,
+    '/page/:id': Characters
 };
 
 
@@ -23,7 +24,7 @@ export const router = async () => {
     header.innerHTML = Header();    
 
     let hash = getHash();
-    let route = await resolveRoutes(hash);    
+    let route =  resolveRoutes(hash);    
     let render = rutas[route] ? rutas[route] : Error404;       
     
     main.innerHTML = await render();

@@ -3,7 +3,9 @@ import { getHash } from "../utils/getHash";
 
 export const Character = async () => {
 
-    const id = getHash();
+    const hash = getHash();
+    const routeArray = hash.split('/');
+    const id = routeArray[2];
     const character = await getData(id);
 
     const view = `
