@@ -13,21 +13,33 @@ import { resolveRoutes } from "../utils/resolveRoutes.js";
 const rutas = {
     '/': Characters,
     '/character/:id' : Character,
-    '/page/:id': Characters
+    '/page/:id': Characters,
+    '/search/:name' : Characters
 };
 
 // evitar doble render
 let isRender = false;
 
 export const router = async () => {
-
+    
     if (isRender) return;
     isRender = true;
 
     const header = document.querySelector('header');
     const main = document.querySelector('main');
-
+    
     header.innerHTML = Header();
+    
+    const searchInput = document.querySelector('#searchInput')
+    
+    if (searchInput) {
+        searchInput.addEventListener("keyup", (e) => {
+            if(e.key === "Enter"){
+                location.hash = `#/search/${e.target.value}`;
+                console.log(e.target.value);   
+            }
+        });
+    }
 
     let hash = getHash();
     let route = resolveRoutes(hash);

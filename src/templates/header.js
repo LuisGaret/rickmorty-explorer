@@ -20,7 +20,14 @@ export const Header = () => {
                 </a>
             </li>
         </ul>
+        
     </nav>
+    <input 
+        id="searchInput"
+        type="text"
+        placeholder="Buscar personaje..."
+        class="p-2 rounded bg-amber-50 w-full"
+    />
     `;
     return view;
 
