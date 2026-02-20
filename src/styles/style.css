@@ -3,3 +3,8 @@
 body{
   background-color: rgb(0, 0, 0);
 }
+
+/* link de nav */
+.text-sm-link{
+  font-size: 12px;
+}

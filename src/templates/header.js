@@ -16,22 +16,22 @@ const view = `
     </li>
     <li>
       <a href="#/characters/"
-        class="group relative px-2 text-sm font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
+        class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
         Characters
         <span
-          class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-3/4 transition-all duration-300"></span>
+          class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
       </a>
       <a href="#/seasons/"
-        class="group relative px-2 text-sm font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
+        class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
         Seasons
         <span
-          class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-3/4 transition-all duration-300"></span>
+          class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
       </a>
       <a href="#/episodes/"
-        class="group relative px-2 text-sm font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
+        class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
         Episodes
         <span
-          class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-3/4 transition-all duration-300"></span>
+          class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
       </a>
     </li>
     <li>
@@ -47,7 +47,7 @@ const view = `
           </span>
           
           <input id="searchInput" type="text" placeholder="Search character..."
-            class="flex-1 bg-transparent text-gray-200 placeholder-gray-500 px-3 py-3 text-sm outline-none" />
+            class="flex-1 md:w-20 lg:w-40 sm:w-40 bg-transparent text-gray-200 placeholder-gray-500 px-3 py-3 text-sm outline-none" />
           <div class="w-px h-6 bg-gray-700 shrink-0"></div>
           
           <button id="searchButton"
