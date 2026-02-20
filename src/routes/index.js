@@ -8,45 +8,45 @@ import { Error404 } from "../pages/Error404.js";
 
 import { getHash } from "../utils/getHash.js";
 import { resolveRoutes } from "../utils/resolveRoutes.js";
-
+import scroll from "../utils/scroll.js";
 
 const rutas = {
     '/': Characters,
-    '/character/:id' : Character,
+    '/character/:id': Character,
     '/page/:id': Characters,
-    '/search/:name' : Characters
+    '/search/:name': Characters
 };
 
 // evitar doble render
 let isRender = false;
 
 export const router = async () => {
-    
+
     if (isRender) return;
     isRender = true;
 
     const header = document.querySelector('header');
     const main = document.querySelector('main');
     const footerElement = document.querySelector('footer');
-    
+
     footerElement.innerHTML = footer();
     header.innerHTML = Header();
-    
+
     const searchInput = document.querySelector('#searchInput')
     const searchButton = document.querySelector('#searchButton');
-    
+
     if (searchInput) {
         searchInput.addEventListener("keyup", (e) => {
-            if(e.key === "Enter"){
+            if (e.key === "Enter") {
                 location.hash = `#/search/${e.target.value}`;
             }
         });
-    } 
+    }
     if (searchButton) {
         searchButton.addEventListener("click", () => {
             // alert(searchInput.value);
             location.hash = `#/search/${searchInput.value}`;
-            
+
         });
     }
 
@@ -55,6 +55,7 @@ export const router = async () => {
     let render = rutas[route] || Error404;
 
     main.innerHTML = await render();
+    scroll();
 
     isRender = false;
 }

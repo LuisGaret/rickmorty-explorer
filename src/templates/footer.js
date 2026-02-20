@@ -2,21 +2,21 @@ import rickymortyLogo from '../../public/icon.png';
 
 export const footer = () => {
     const view = `
-    <div class="max-w-5xl mx-auto px-6 py-10 flex flex-col items-center gap-6">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex flex-col items-center gap-6">
     <div class="w-full h-px bg-[linear-gradient(to_right,transparent,#4ade8020,transparent)] md:hidden"></div>
-    <nav class="flex items-center gap-4 px-4 md:hidden">
+    <nav class="flex flex-col items-center gap-4 md:hidden">
             <a href="#/characters/"
-                class="group relative px-4 py-2 text-sm font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
+                class="text-sm font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
                 Characters
                 <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-3/4 transition-all duration-300"></span>
             </a>
             <a href="#/seasons/"
-                class="group relative px-4 py-2 text-sm font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
+                class="text-sm font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
                 Seasons
                 <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-3/4 transition-all duration-300"></span>
             </a>
             <a href="#/episodes/"
-                class="group relative px-4 py-2 text-sm font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
+                class="text-sm font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
                 Episodes
                 <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-3/4 transition-all duration-300"></span>
             </a>            

@@ -1,3 +1,5 @@
+import { Error404 } from "../pages/Error404";
+
 const API = "https://rickandmortyapi.com/api/character/";
 const cache = {};
 
@@ -20,6 +22,7 @@ export const getData = async (endpoint = "") => {
         return data;
 
     } catch (error) {
-        console.error("fetch error:", error);
+        Error404();
+        console.error("Error fetching data:", error);
     }
 };

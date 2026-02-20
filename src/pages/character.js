@@ -8,7 +8,7 @@ export const Character = async () => {
   const id = routeArray[2]
   const character = await getData(id);
   const view = `
-  <div class="min-h-screen bg-black px-4 font-mon py-5">
+  <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
       <div class="max-w-6xl mx-auto mb-10">
           <a href="#/"
               class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-25">
