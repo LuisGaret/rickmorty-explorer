@@ -4,7 +4,7 @@ import { footer } from "../templates/footer";
 
 import { Characters } from "../pages/characters.js";
 import { Character } from "../pages/character.js";
-import { Error404 } from "../pages/error404.js";
+import { Error404 } from "../pages/Error404.js";
 
 import { getHash } from "../utils/getHash.js";
 import { resolveRoutes } from "../utils/resolveRoutes.js";
@@ -27,17 +27,26 @@ export const router = async () => {
 
     const header = document.querySelector('header');
     const main = document.querySelector('main');
+    const footerElement = document.querySelector('footer');
     
+    footerElement.innerHTML = footer();
     header.innerHTML = Header();
     
     const searchInput = document.querySelector('#searchInput')
+    const searchButton = document.querySelector('#searchButton');
     
     if (searchInput) {
         searchInput.addEventListener("keyup", (e) => {
             if(e.key === "Enter"){
                 location.hash = `#/search/${e.target.value}`;
-                console.log(e.target.value);   
             }
+        });
+    } 
+    if (searchButton) {
+        searchButton.addEventListener("click", () => {
+            // alert(searchInput.value);
+            location.hash = `#/search/${searchInput.value}`;
+            
         });
     }
 
