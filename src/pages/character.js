@@ -96,8 +96,8 @@ export const Character = async () => {
                       </div>
                   </div>
               </div>
-              <div class="lg:col-span-3 flex flex-col justify-between">
-                  <div class="p-6 border-b border-gray-900 flex items-center justify-between items-start gap-4">
+              <div class="lg:col-span-3 flex flex-col justify-center">
+                  <div class="p-6 border-b border-gray-900 flex items-center justify-between gap-4">
                       <p class="text-xs text-gray-500 tracking-[0.3em] uppercase">EPISODES</p>
                       <span class="text-xs text-gray-500 font-mono">${character.episode.length} RECORDS</span>
                   </div>

@@ -1,4 +1,4 @@
-import '../style.css';
+import '../styles/style.css';
 import { Header } from "../templates/header";
 import { footer } from "../templates/footer";
 
