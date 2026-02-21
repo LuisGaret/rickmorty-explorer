@@ -5,6 +5,8 @@ import { footer } from "../templates/footer";
 import { Characters } from "../pages/characters.js";
 import { Character } from "../pages/character.js";
 import { Error404 } from "../pages/Error404.js";
+import { Episodes } from "../pages/episodes.js";
+import { Episode } from "../pages/episode.js";
 
 import { getHash } from "../utils/getHash.js";
 import { resolveRoutes } from "../utils/resolveRoutes.js";
@@ -14,7 +16,9 @@ const rutas = {
     '/': Characters,
     '/character/:id': Character,
     '/page/:id': Characters,
-    '/search/:name': Characters
+    '/search/:name': Characters,
+    '/episodes/': Episodes,
+    '/episode/:id': Episode,
 };
 
 // evitar doble render

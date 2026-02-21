@@ -3,7 +3,7 @@ import { Error404 } from "../pages/Error404";
 const API = "https://rickandmortyapi.com/api/character/";
 const cache = {};
 
-export const getData = async (endpoint = "") => {
+export const getCharacters = async (endpoint = "") => {
 
     if (cache[endpoint]) return cache[endpoint];
 
