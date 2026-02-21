@@ -1,28 +1,33 @@
-import { Error404 } from "../pages/Error404";
-
 const API = "https://rickandmortyapi.com/api/character/";
-const cache = {};
+const cache = new Map();
 
 export const getCharacters = async (endpoint = "") => {
 
-    if (cache[endpoint]) return cache[endpoint];
+  if (cache.has(endpoint)) {
+    return cache.get(endpoint);
+  }
 
-    try {
-        const response = await fetch(`${API}${endpoint}`);
-        
+  try {
+    const response = await fetch(`${API}${endpoint}`);
 
-        if (!response.ok) {
-            throw new Error(response.status);
-        }
-
-        const data = await response.json();
-
-        cache[endpoint] = data;
-
-        return data;
-
-    } catch (error) {
-        Error404();
-        console.error("Error fetching data:", error);
+    if (response.status === 429) {
+      console.warn("Too many requests, retrying...");
+      await new Promise(r => setTimeout(r, 1000));
+      return getCharacters(endpoint);
     }
+
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+
+    const data = await response.json();
+
+    cache.set(endpoint, data);
+
+    return data;
+
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  }
 };
