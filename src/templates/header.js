@@ -1,21 +1,20 @@
-import rickymortyLogo from '../../public/icon.png';
+import rickymortyLogo from "/images/icons/logo.png";
 
 export const Header = () => {
 const view = `
-<nav class="">
+<nav style="animation: cardReveal 1s;">
   <ul class="flex flex-col sm:flex-row items-center justify-between gap-6 px-4 py-4 m-6">
     <li>
-      <a href="/" class="flex items-center gap-3 no-underline">
+      <a href="#/" class="flex items-center gap-3 no-underline">
         <img src="${rickymortyLogo}" alt="Logo" class="w-10 h-10 object-contain">
         <div class="flex flex-col leading-tight">
           <span class="text-xl font-black text-white tracking-tighter">RICK & MORTY</span>
           <span class="text-sm font-bold text-green-400 tracking-[0.3em] uppercase">Explorer</span>
         </div>
-
       </a>
     </li>
     <li>
-    <a href="/"
+    <a href="#/"
       class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
       HOME
       <span
@@ -34,7 +33,7 @@ const view = `
           class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
       </a>
     </li>
-    <li>
+    <li id="searchContainer1">
       <div class="max-w-6xl mx-auto">
         <div
           class="flex items-center border border-gray-700 bg-gray-900/60 rounded-xl overflow-hidden focus-within:border-green-400/60 focus-within:shadow-lg focus-within:shadow-green-500/10 transition-all duration-300">

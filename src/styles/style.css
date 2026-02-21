@@ -18,7 +18,7 @@ body {
   border-left-color: #4ade80 !important;
   position: fixed;
   top: 2%;
-  left:1%;
+  left: 1%;
 }
 
 @media (max-width: 768px) {
@@ -27,16 +27,38 @@ body {
   }
 }
 
-  @keyframes cardReveal {
-    from {
-      opacity: 0;
-      transform: translateY(20px) scale(0.96);
-      filter: blur(4px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
-    }
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+    filter: blur(4px);
   }
 
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp .9s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.delay-100 {
+  animation-delay: .1s;
+}

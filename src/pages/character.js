@@ -19,10 +19,10 @@ return episode;
 const view = `
 <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
   <div class="max-w-6xl mx-auto mb-10">
-    <a href="#/"
-      class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-25">
+    <a href="#/characters/"
+      class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
       <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-      Back
+      Characters
     </a>
   </div>
   <div class="max-w-6xl mx-auto">
@@ -97,10 +97,16 @@ const view = `
                 <span class="text-sm text-white font-bold leading-snug">${character.location.name}</span>
               </div>
             </div>
+            <div class="grid grid-cols-2 gap-4">
             <div class="">
               <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">APPEARANCES</p>
               <p class="text-7xl font-black text-white leading-none">${character.episode.length}</p>
               <p class="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-1">EPISODES</p>
+            </div>
+            <div class="lg:hidden ">
+              <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">PHOTO</p>
+              <img src="${character.image}" alt="${character.name}.png" class="w-20 h-auto object-cover rounded-lg">
+            </div>
             </div>
           </div>
         </div>
@@ -118,7 +124,7 @@ const view = `
             class="flex items-center gap-3 px-4 py-3 hover:bg-green-500/15 transition-colors duration-150 border-b border-white/5 last:border-0">
             <div class="relative shrink-0">
             <img 
-              src="/images/episode-${ep.id}.png"
+              src="/images/episodes/episode-${ep.id}.png"
               alt="${ep.name}"
               class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10"
             />            </div>

@@ -43,7 +43,7 @@ return `
 
 const view = `
 <div class="min-h-screen bg-[#0e0e0e] font-sans">
-  <div class="px-8 lg:px-16 pt-12 pb-6 flex items-center justify-between">
+  <div class="px-8 lg:px-16 pb-6 flex items-center justify-between">
     <div>
       <p class="text-[11px] uppercase tracking-[0.2em] text-gray-600 mb-1">Rick & Morty</p>
       <h1 class="text-2xl font-black text-white">Episodes</h1>
@@ -63,7 +63,7 @@ const view = `
 
       <div class="relative overflow-hidden" style="aspect-ratio: 16/9;">
         <img class="w-full h-full object-cover transition-all duration-700 ease-out" alt="${episode.name}"
-          src="/images/episode-${episode.id}.png" loading="lazy" />
+          src="/images/episodes/episode-${episode.id}.png" loading="lazy" />
 
         <div class="absolute inset-0 bg-linear-to-t
           from-[#0e0e0e] via-[#0e0e0e]/40 to-transparent

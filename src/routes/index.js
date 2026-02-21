@@ -7,13 +7,16 @@ import { Character } from "../pages/character.js";
 import { Error404 } from "../pages/Error404.js";
 import { Episodes } from "../pages/episodes.js";
 import { Episode } from "../pages/episode.js";
+import { Home } from "../pages/home.js";
 
 import { getHash } from "../utils/getHash.js";
 import { resolveRoutes } from "../utils/resolveRoutes.js";
 import scroll from "../utils/scroll.js";
+import { homeSearch } from "../utils/homeSearch.js";
 
 const rutas = {
-    '/': Characters,
+    '/': Home,
+    '/characters/': Characters,
     '/character/:id': Character,
     '/page/:id': Characters,
     '/search/:name': Characters,
@@ -33,6 +36,7 @@ export const router = async () => {
     const main = document.querySelector('main');
     const footerElement = document.querySelector('footer');
 
+
     footerElement.innerHTML = footer();
     header.innerHTML = Header();
 
@@ -46,6 +50,7 @@ export const router = async () => {
             }
         });
     }
+
     if (searchButton) {
         searchButton.addEventListener("click", () => {
             // alert(searchInput.value);
@@ -54,10 +59,11 @@ export const router = async () => {
         });
     }
 
+
     let hash = getHash();
     let route = resolveRoutes(hash);
+    homeSearch(route, header, footerElement);
     let render = rutas[route] || Error404;
-
     main.innerHTML = await render();
     scroll();
 

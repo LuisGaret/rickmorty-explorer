@@ -63,7 +63,7 @@ return `
   <a href="#/page/"
     class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm">
     <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-    Back
+    All Characters
   </a>
 </div>
 `;
@@ -72,8 +72,7 @@ return `
 }
 const view = `
 <div class="min-h-screen bg-[#0e0e0e] font-sans">
-  <!-- Header / Pagination -->
-  <div class="px-8 lg:px-16 pt-12 pb-6 flex items-center justify-between">
+  <div class="px-8 lg:px-16 pb-6 flex items-center justify-between">
     <div>
       <p class="text-[11px] uppercase tracking-[0.2em] text-gray-600 mb-1">Rick & Morty</p>
       <h1 class="text-2xl font-black text-white">Characters</h1>
@@ -81,13 +80,11 @@ const view = `
     ${resultPagination()}
   </div>
 
-  <!-- Divider -->
-  <div class="mx-8 lg:mx-16 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-10"></div>
-  <!-- Grid -->
+  <div class="mx-8 lg:mx-16 h-px bg-linear-to-r from-transparent via-white/10 to-transparent mb-10"></div>
   <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4  lg:m-10 min-h-screen">
     ${characters.results.map((character, i) => `
     <a href="#/character/${character.id}" style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 40}ms"
-      class="group relative flex flex-col rounded-xl overflow-hidden border border-gray-800/80 bg-gray-900/60 backdrop-blur-sm hover:border-green-400/10 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-300 hover:-translate-y-1.5">
+      class="group relative flex flex-col rounded-xl overflow-hidden border border-gray-800/80 bg-gray-900/60 backdrop-blur-sm hover:border-green-400/10 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer">
       <div
         class="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-green-400/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
       </div>
@@ -116,7 +113,10 @@ const view = `
         class="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-[linear-gradient(to_right,transparent,rgba(16,185,129,0.4),transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
       </div>
     </a>
+    
     `).join('')}
+  </div>
+    ${resultPagination()}
   </div>
   `;
   return view;
