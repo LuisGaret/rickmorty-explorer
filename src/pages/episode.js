@@ -31,7 +31,7 @@ const view = `
       <div
         class=" lg:col-span-4 relative overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-900 transition-all duration-1900 cursor-pointer"
         style="min-height: 280px;">
-        <img src="public/images/episode-${episode.id}.png" alt="${episode.name}"
+        <img src="/images/episode-${episode.id}.png" alt="${episode.name}"
           class="absolute inset-0 w-full h-full object-cover contrast-125 opacity-80" />
         <div
           class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">

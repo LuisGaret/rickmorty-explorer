@@ -117,9 +117,11 @@ const view = `
           <div
             class="flex items-center gap-3 px-4 py-3 hover:bg-green-500/15 transition-colors duration-150 border-b border-white/5 last:border-0">
             <div class="relative shrink-0">
-              <img src="public/images/episode-${ep.id}.png" alt="${ep.name}"
-                class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10 ">
-            </div>
+            <img 
+              src="/images/episode-${ep.id}.png"
+              alt="${ep.name}"
+              class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10"
+            />            </div>
             <div class="min-w-0">
               <p class="text-sm font-medium text-white truncate leading-tight">${ep.name}</p>
               <p class="text-xs text-gray-500 truncate">${ep.episode}</p>

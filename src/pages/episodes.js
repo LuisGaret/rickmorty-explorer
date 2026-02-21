@@ -63,7 +63,7 @@ const view = `
 
       <div class="relative overflow-hidden" style="aspect-ratio: 16/9;">
         <img class="w-full h-full object-cover transition-all duration-700 ease-out" alt="${episode.name}"
-          src="public/images/episode-${episode.id}.png" loading="lazy" />
+          src="/images/episode-${episode.id}.png" loading="lazy" />
 
         <div class="absolute inset-0 bg-linear-to-t
           from-[#0e0e0e] via-[#0e0e0e]/40 to-transparent
