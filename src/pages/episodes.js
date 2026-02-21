@@ -1,12 +1,11 @@
 import { getHash } from "../utils/getHash";
 import { getEpisodes } from "../utils/getEpisodes";
-import { NumRandom } from "../utils/numRandom";
 
 export const Episodes = async () => {
 
 const hash = getHash();
 const routeArray = hash.split('/');
-const page = routeArray[2] || NumRandom(4);
+const page = routeArray[2] || 1;
 const episodes = await getEpisodes(`?page=${page}`);
 
 const resultPagination = () => {
@@ -64,7 +63,7 @@ const view = `
 
       <div class="relative overflow-hidden" style="aspect-ratio: 16/9;">
         <img class="w-full h-full object-cover transition-all duration-700 ease-out" alt="${episode.name}"
-          src="src/assets/img/episodes/episode-${episode.id}.png" loading="lazy" />
+          src="public/images/episode-${episode.id}.png" loading="lazy" />
 
         <div class="absolute inset-0 bg-linear-to-t
           from-[#0e0e0e] via-[#0e0e0e]/40 to-transparent

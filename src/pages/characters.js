@@ -1,13 +1,12 @@
 import { getHash } from "../utils/getHash";
 import { getCharacters } from "../utils/getCharacters";
-import { NumRandom } from "../utils/numRandom";
 import { Error404 } from "./Error404";
 
 export const Characters = async () => {
 
 const hash = getHash();
 const routeArray = hash.split('/');
-const page = routeArray[2] || NumRandom(42);
+const page = routeArray[2] || 1;
 const search = routeArray[1] === "search" ? routeArray[2] : null;
 
 let characters;

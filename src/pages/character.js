@@ -113,25 +113,24 @@ const view = `
         <div class="overflow-y-auto"
           style="max-height: 350px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
           ${episodes.map((ep, i) => `
+            <a href="#/episode/${ep.id}"class="group flex items-center gap-1 text-gray-500 hover:text-green-400 transition-colors duration-200 font-semibold">
           <div
-            class="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors duration-150 border-b border-white/5 last:border-0">
+            class="flex items-center gap-3 px-4 py-3 hover:bg-green-500/15 transition-colors duration-150 border-b border-white/5 last:border-0">
             <div class="relative shrink-0">
-              <img src="src/assets/img/episodes/episode-${ep.id}.png" alt="${ep.name}"
+              <img src="public/images/episode-${ep.id}.png" alt="${ep.name}"
                 class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10 ">
-
             </div>
             <div class="min-w-0">
               <p class="text-sm font-medium text-white truncate leading-tight">${ep.name}</p>
               <p class="text-xs text-gray-500 truncate">${ep.episode}</p>
             </div>
             <div class="ml-auto text-xs text-gray-600 font-mono tracking-wide">
-              <a href="#/episode/${ep.id}"
-                class="group flex items-center gap-1 text-gray-500 hover:text-green-400 transition-colors duration-200 font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"
                   class="icon icon-tabler icons-tabler-filled icon-tabler-player-play">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" />
                 </svg>
+                </a>
             </div>
           </div>
           `).join('')}

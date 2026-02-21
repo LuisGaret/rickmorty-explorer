@@ -16,7 +16,6 @@ const charactersEpisode = await Promise.all(episode.characters.map(async (charac
   return character;
 }));
 
-console.log(charactersEpisode);
 
 const view = `
 <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
@@ -32,7 +31,7 @@ const view = `
       <div
         class=" lg:col-span-4 relative overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-900 transition-all duration-1900 cursor-pointer"
         style="min-height: 280px;">
-        <img src="src/assets/img/episodes/episode-${episode.id}.png" alt="${episode.name}"
+        <img src="public/images/episode-${episode.id}.png" alt="${episode.name}"
           class="absolute inset-0 w-full h-full object-cover contrast-125 opacity-80" />
         <div
           class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
@@ -76,25 +75,24 @@ const view = `
   <div class="overflow-y-auto"
     style="max-height: 350px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
     ${charactersEpisode.map((ep, i) => `
-      <div class="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors duration-150 border-b border-white/5 last:border-0">
-                <div class="relative shrink-0">
-          <img src="${ep.image}" alt="${ep.name}"
-            class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10 ">
-          
-        </div>
-        <div class="min-w-0">
-          <p class="text-sm font-medium text-white truncate leading-tight">${ep.name}</p>
-          <p class="text-xs text-gray-500 truncate">${ep.species}</p>
-        </div>
-        <div class="ml-auto text-xs text-gray-600 font-mono tracking-wide">
         <a href="#/character/${ep.id}" class="group flex items-center gap-1 text-gray-500 hover:text-green-400 transition-colors duration-200 font-semibold">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h1.5" /><path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>        </a>
-        </div>
-      </div>
-    `).join('')}
-  </div>
-
-</div>
+        <div class="flex items-center gap-3 px-4 py-3 hover:bg-green-500/15 transition-colors duration-150 border-b border-white/5 last:border-0">
+            <div class="relative shrink-0">
+              <img src="${ep.image}" alt="${ep.name}" class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10 ">
+            </div>
+            <div class="min-w-0">
+              <p class="text-sm font-medium text-white truncate leading-tight">${ep.name}</p>
+              <p class="text-xs text-gray-500 truncate">${ep.species}</p>
+            </div>
+        <div class="ml-auto text-xs text-gray-600 font-mono tracking-wide">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h1.5" /><path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>        
+          </a>
+          </div>
+          </div>
+          `).join('')}
+          </div>
+          
+          </div>
     </div>
   </div>
 </div>
