@@ -17,9 +17,8 @@ const view = `
     <div>
       <p class="text-[11px] uppercase tracking-[0.2em] text-gray-600 mb-1">Rick & Morty</p>
       <h1 class="text-2xl font-black text-white">Episodes</h1>
-    </div>q
+    </div>
     ${resultPagination(true, episodes, page, "episodes")} 
-}
   </div>
   <div class="mx-8 lg:mx-16 h-px bg-linear-to-r from-transparent via-white/10 to-transparent mb-10"></div>
   <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-8 lg:px-16 pb-16">
