@@ -96,6 +96,8 @@ const view = `
     `).join('')}
   </div>
 </div>
+    ${resultPagination(true, episodes, page, "episodes")} 
+
 </div>
 `;
 return view;

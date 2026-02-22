@@ -74,7 +74,7 @@ const view = `
     
     `).join('')}
   </div>
-    ${resultPagination()}
+    ${resultPagination(pagination, characters, page, "characters")}
   </div>
   `;
   return view;
