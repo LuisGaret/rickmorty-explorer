@@ -5,7 +5,7 @@ const view = `
 <nav style="animation: cardReveal 1s;">
   <ul class="flex flex-col sm:flex-row items-center justify-between gap-6 px-4 py-4 m-6">
     <li>
-      <a href="#/" class="flex items-center gap-3 no-underline">
+      <a href="/" class="flex items-center gap-3 no-underline">
         <img src="${rickymortyLogo}" alt="Logo" class="w-10 h-10 object-contain">
         <div class="flex flex-col leading-tight">
           <span class="text-xl font-black text-white tracking-tighter">RICK & MORTY</span>
@@ -14,7 +14,7 @@ const view = `
       </a>
     </li>
     <li>
-    <a href="#/"
+    <a href="/"
       class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
       HOME
       <span

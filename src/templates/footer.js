@@ -5,7 +5,7 @@ export const footer = () => {
     <div class="max-w-5xl mx-auto px-6 py-5 flex flex-col items-center gap-6">
     <div class="w-full h-px bg-[linear-gradient(to_right,transparent,#4ade8020,transparent)] md:hidden"></div>
     <nav class="flex flex-col items-center gap-4 md:hidden">
-    <a href="#/"
+    <a href="/"
         class="text-sm font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
         Home
         <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-3/4 transition-all duration-300"></span>

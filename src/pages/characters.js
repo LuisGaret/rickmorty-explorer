@@ -2,6 +2,7 @@ import { getHash } from "../utils/getHash";
 import { getCharacters } from "../utils/getCharacters";
 import { Error404 } from "./Error404";
 import { NumRandom } from "../utils/numRandom";
+import { resultPagination } from "../utils/pagination";
 
 export const Characters = async () => {
 
@@ -27,50 +28,6 @@ if (!characters?.results) {
 return Error404();
 }
 
-const resultPagination = () => {
-if (pagination) {
-return `
-<div class="flex justify-between items-center md:px-10 py-5">
-  ${characters.info.prev ? `
-  <a href="#/page/${Number(page) - 1}"
-    class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm">
-    <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-    Prev
-  </a>
-  ` : `
-  <div
-    class="px-5 py-2.5 rounded-lg border border-gray-800/40 bg-gray-900/20 text-gray-700 text-sm font-semibold tracking-widest uppercase cursor-not-allowed select-none">
-    ← Prev
-  </div>
-  `}
-  ${characters.info.next ? `
-  <a href="#/page/${Number(page) + 1}"
-    class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm">
-    Next
-    <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
-  </a>
-  ` : `
-  <div
-    class="px-5 py-2.5 rounded-lg border border-gray-800/40 bg-gray-900/20 text-gray-700 text-sm font-semibold tracking-widest uppercase cursor-not-allowed select-none">
-    Next →
-  </div>
-  `}
-
-</div>
-`;
-} else {
-return ` 
-<div class="flex justify-between items-center md:px-10 py-5">
-  <a href="#/page/"
-    class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm">
-    <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-    All Characters
-  </a>
-</div>
-`;
-}
-
-}
 const view = `
 <div class="min-h-screen bg-[#0e0e0e] font-sans">
   <div class=" px-8 lg:px-16 pb-6 lg:flex items-center justify-between">
@@ -78,7 +35,7 @@ const view = `
       <p class="text-[11px] uppercase tracking-[0.2em] text-gray-600 mb-1">Rick & Morty</p>
       <h1 class="text-2xl font-black text-white">Characters</h1>
     </div>
-    ${resultPagination()}
+    ${resultPagination(pagination, characters, page, "characters")}
   </div>
 
   <div class="mx-8 lg:mx-16 h-px bg-linear-to-r from-transparent via-white/10 to-transparent mb-10"></div>

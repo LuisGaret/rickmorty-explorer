@@ -1,6 +1,7 @@
 import { getHash } from "../utils/getHash";
 import { getEpisodes } from "../utils/getEpisodes";
 import { NumRandom } from "../utils/numRandom";
+import { resultPagination } from "../utils/pagination";
 
 export const Episodes = async () => {
 
@@ -9,36 +10,6 @@ const routeArray = hash.split('/');
 const page = routeArray[2] || NumRandom(4);
 const episodes = await getEpisodes(`?page=${page}`);
 
-const resultPagination = () => {
-return `
-<div class="flex justify-between items-center md:px-10 py-5">
-  ${episodes.info.prev ? `
-  <a href="#/episodes/${Number(page) - 1}"
-    class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm">
-    <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-    Prev
-  </a>
-  ` : `
-  <div
-    class="px-5 py-2.5 rounded-lg border border-gray-800/40 bg-gray-900/20 text-gray-700 text-sm font-semibold tracking-widest uppercase cursor-not-allowed select-none">
-    ← Prev
-  </div>
-  `}
-  ${episodes.info.next ? `
-  <a href="#/episodes/${Number(page) + 1}"
-    class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm">
-    Next
-    <span class="group-hover:translate-x-1 transition-transform duration-200">→</span>
-  </a>
-  ` : `
-  <div
-    class="px-5 py-2.5 rounded-lg border border-gray-800/40 bg-gray-900/20 text-gray-700 text-sm font-semibold tracking-widest uppercase cursor-not-allowed select-none">
-    Next →
-  </div>
-  `}
-</div>
-`;
-}
 
 const view = `
 <div class="min-h-screen bg-[#0e0e0e] font-sans">
@@ -46,10 +17,10 @@ const view = `
     <div>
       <p class="text-[11px] uppercase tracking-[0.2em] text-gray-600 mb-1">Rick & Morty</p>
       <h1 class="text-2xl font-black text-white">Episodes</h1>
-    </div>
-    ${resultPagination()}
+    </div>q
+    ${resultPagination(true, episodes, page, "episodes")} 
+}
   </div>
-
   <div class="mx-8 lg:mx-16 h-px bg-linear-to-r from-transparent via-white/10 to-transparent mb-10"></div>
   <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-8 lg:px-16 pb-16">
     ${episodes.results.map((episode, i) => `
