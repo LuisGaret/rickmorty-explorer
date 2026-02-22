@@ -1,7 +1,7 @@
 const API = "https://rickandmortyapi.com/api/character/";
 const cache = new Map();
 
-export const getCharacters = async (endpoint = "") => {
+export const getCharacters = async (endpoint = "", retries = 3) => {
 
   if (cache.has(endpoint)) {
     return cache.get(endpoint);
@@ -11,9 +11,14 @@ export const getCharacters = async (endpoint = "") => {
     const response = await fetch(`${API}${endpoint}`);
 
     if (response.status === 429) {
-      console.warn("Too many requests, retrying...");
-      await new Promise(r => setTimeout(r, 1000));
-      return getCharacters(endpoint);
+      if (retries <= 0) {
+        throw new Error("Rate limit exceeded");
+      }
+
+      console.warn("Too many requests, waiting...");
+      await new Promise(r => setTimeout(r, 2000));
+
+      return getCharacters(endpoint, retries - 1);
     }
 
     if (!response.ok) {
