@@ -14,6 +14,10 @@ return `
     ← Prev
   </div>
   `}
+  <button id="reloadButton" onClick="window.location.reload()"
+          class="shrink-0 flex items-center gap-2 px-5 py-3 text-green-400 hover:text-white  transition-all duration-400 text-sm font-semibold tracking-widest uppercase cursor-pointer">
+          <span class="group-hover:-translate-x-1 transition-transform duration-200 text-2xl">⟳</span>
+          </button>
   ${result.info.next ? `
   <a href="#/${i}/${Number(page) + 1}"
     class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm">

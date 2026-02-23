@@ -56,14 +56,6 @@ export const Header = () => {
 
       </div>
       </li>
-      <li>
-          <button id="reloadButton" onClick="window.location.reload()"
-          class="shrink-0 flex items-center gap-2 px-5 py-3 text-green-400 hover:text-white  transition-all duration-400 text-sm font-semibold tracking-widest uppercase cursor-pointer"
-          style="animation: cardReveal 5s;">
-          <span class="group-hover:-translate-x-1 transition-transform duration-200">⟳</span>
-          Reload
-          </button>
-      </li>
   </ul>
 </nav>
 `;

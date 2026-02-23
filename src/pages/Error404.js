@@ -2,11 +2,11 @@ export const Error404 = () => {
   const view = `
   <div class="animate-fadeUp min-h-screen bg-black px-4 font-mon py-5">  
   <div class="max-w-6xl mx-auto mb-10">
-        <a href="/"
+        <button onClick="window.location.reload()" 
             class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
             <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-            Retry
-        </a>
+            Reload
+        </button>
     </div>
     <div class=" flex flex-col items-center justify-center px-6 gap-8">
         <div class="relative flex items-center justify-center">

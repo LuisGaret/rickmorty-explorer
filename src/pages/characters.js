@@ -41,7 +41,7 @@ const view = `
   <div class="mx-8 lg:mx-16 h-px bg-linear-to-r from-transparent via-white/10 to-transparent mb-10"></div>
   <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4  lg:m-10 min-h-screen">
     ${characters.results.map((character, i) => `
-    <a href="#/character/${character.id}" style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 100}ms"
+    <a href="#/character/${character.id}" style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 40}ms"
       class="group relative flex flex-col rounded-xl overflow-hidden border border-gray-800/80 bg-gray-900/60 backdrop-blur-sm hover:border-green-400/10 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer">
       <div
         class="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-green-400/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
