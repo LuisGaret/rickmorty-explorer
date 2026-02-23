@@ -38,7 +38,7 @@ const view = `
       transition-all duration-300">
             <!-- Imagen preview -->
             <div class="w-full aspect-video rounded-lg overflow-hidden bg-black/40">
-              <img src="/images/frontPage/portada.png" alt="Characters" class="w-full h-full object-cover grayscale group-hover:grayscale-0
+              <img src="/images/episodes/episode-default.png" alt="Characters" class="w-full h-full object-cover grayscale group-hover:grayscale-0
           scale-105 group-hover:scale-110 transition-all duration-500" />
               <div
                 class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">

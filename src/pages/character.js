@@ -121,6 +121,7 @@ const view = `
           ${episodes.map((ep, i) => `
             <a href="#/episode/${ep.id}"class="group flex items-center gap-1 text-gray-500 hover:text-green-400 transition-colors duration-200 font-semibold">
           <div
+                    style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 100}ms"
             class="flex items-center gap-3 px-4 py-3 hover:bg-green-500/15 transition-colors duration-150 border-b border-white/5 last:border-0">
             <div class="relative shrink-0">
             <img 

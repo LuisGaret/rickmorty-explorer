@@ -1,9 +1,9 @@
 import rickymortyLogo from "/images/icons/logo.png";
 
 export const Header = () => {
-const view = `
-<nav style="animation: cardReveal 1s;">
-  <ul class="flex flex-col sm:flex-row items-center justify-between gap-6 px-4 py-4 m-6">
+  const view = `
+<nav>
+  <ul class="flex flex-col sm:flex-row items-center justify-between gap-6 px-4 pt-5 m-6">
     <li>
       <a href="/" class="flex items-center gap-3 no-underline">
         <img src="${rickymortyLogo}" alt="Logo" class="w-10 h-10 object-contain">
@@ -46,20 +46,27 @@ const view = `
           </span>
           
           <input id="searchInput" type="text" placeholder="Search character..."
-            class="flex-1 md:w-20 lg:w-40 sm:w-40 bg-transparent text-gray-200 placeholder-gray-500 px-3 py-3 text-sm outline-none" />
+            class="flex-1 md:w-40 lg:w-100 sm:w-40 bg-transparent text-gray-200 placeholder-gray-500 px-3 py-3 text-sm outline-none" />
           <div class="w-px h-6 bg-gray-700 shrink-0"></div>
           
           <button id="searchButton"
-            class="shrink-0 flex items-center gap-2 px-5 py-3 text-gray-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 text-sm font-semibold tracking-widest uppercase cursor-pointer">
+            class="hidden shrink-0 items-center gap-2 px-5 py-3 text-gray-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 text-sm font-semibold tracking-widest uppercase cursor-pointer">
             Search
           </button>
-        
-          </div>
+
       </div>
-    </li>
+      </li>
+      <li>
+          <button id="reloadButton" onClick="window.location.reload()"
+          class="shrink-0 flex items-center gap-2 px-5 py-3 text-green-400 hover:text-white  transition-all duration-400 text-sm font-semibold tracking-widest uppercase cursor-pointer"
+          style="animation: cardReveal 5s;">
+          <span class="group-hover:-translate-x-1 transition-transform duration-200">⟳</span>
+          Reload
+          </button>
+      </li>
   </ul>
 </nav>
 `;
-return view;
+  return view;
 
 }

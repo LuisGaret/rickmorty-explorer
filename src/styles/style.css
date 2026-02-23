@@ -17,14 +17,12 @@ body {
   border-top-color: #4ade80 !important;
   border-left-color: #4ade80 !important;
   position: fixed;
-  top: 2%;
-  left: 1%;
-}
-
-@media (max-width: 768px) {
-  #nprogress .spinner-icon {
-    right: 5%;
-  }
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px !important;
+  height: 60px !important;
+  filter: drop-shadow(0 0 15px #4ade80) drop-shadow(0 0 10px #4ade80) drop-shadow(0 0 15px #4ade80);
 }
 
 @keyframes cardReveal {
