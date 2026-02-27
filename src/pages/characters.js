@@ -34,8 +34,8 @@ const view = `
       <p class="text-[11px] uppercase tracking-[0.2em] text-gray-300 mb-1">Page: ${page}</p>
       <h1 class="text-2xl font-black text-white">Characters</h1>
       </div>
-      </div>
       ${resultPagination(pagination, characters, page, "characters")}
+      </div>
 
   <div class="mx-8 lg:mx-16 h-px bg-linear-to-r from-transparent via-white/10 to-transparent mb-10"></div>
   <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4  lg:m-10 min-h-screen">
