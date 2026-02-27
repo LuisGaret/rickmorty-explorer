@@ -3,7 +3,7 @@ export const Error404 = () => {
   <div class="animate-fadeUp min-h-screen bg-black px-4 font-mon py-5">  
   <div class="max-w-6xl mx-auto mb-10">
         <button onClick="window.location.reload()" 
-            class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
+            class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
             <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
             Reload
         </button>

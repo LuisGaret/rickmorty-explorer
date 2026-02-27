@@ -15,5 +15,3 @@ window.addEventListener('DOMContentLoaded', () => {
     router()
     NProgress.done()
 });
-
-

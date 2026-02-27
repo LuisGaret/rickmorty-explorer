@@ -1,8 +1,11 @@
 import { getEpisodes } from "../utils/getEpisodes";
 import { getHash } from "../utils/getHash";
 import { getCharacters } from "../utils/getCharacters";
+import { imgQuality } from "../utils/imgQuality";
 
 export const Episode = async () => {
+
+const imgQualityType = imgQuality();  
 const hash = getHash();
 const routeArray = hash.split('/');
 const id = routeArray[2]
@@ -19,23 +22,20 @@ const charactersEpisode = await Promise.all(episode.characters.map(async (charac
 const view = `
 <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
   <div class="max-w-6xl mx-auto mb-10 flex justify-between">
-    <a href="${location.hash.includes('episodes') ? '#/episodes/' : '#/episodes/'}"
-      class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-25">
+    <a href="#/characters/"
+      class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
       <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-      Back
+      Episodes
     </a>
-        <button id="reloadButton" onClick="window.location.reload()"
-          class="shrink-0 flex items-center gap-2 px-5 py-3 text-green-400 hover:text-white  transition-all duration-400 text-sm font-semibold tracking-widest uppercase cursor-pointer">
-          <span class="group-hover:-translate-x-1 transition-transform duration-200 text-2xl">⟳</span>
-          </button>
-    </div>
+  </div>
   <div class="max-w-6xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-gray-900 ">
       <div
         class=" lg:col-span-4 relative overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-900 transition-all duration-1900 cursor-pointer"
         style="min-height: 280px;">
-        <img src="/images/episodes/episode-${episode.id || 'default'}.png" alt="${episode.name}"
-          class="absolute inset-0 w-full h-full object-cover contrast-125 opacity-80" />
+        <img src="/images/episodes/episode-${episode.id}.${imgQualityType}" alt="${episode.name}"
+        loading="lazy"  
+        class="absolute inset-0 w-full h-full object-cover contrast-125 opacity-80" />
         <div
           class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
         </div>
@@ -76,27 +76,22 @@ const view = `
     <span class="text-xs text-gray-300">${charactersEpisode.length}</span>
   </div>
   <div class="overflow-y-auto"
-    style="max-height: 350px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
+    style="max-height: 300px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
     ${charactersEpisode.map((ep, i) => `
-        <a href="#/character/${ep.id}" class="group flex items-center gap-1 text-gray-500 hover:text-green-400 transition-colors duration-200 font-semibold">
         <div class="flex items-center gap-3 px-4 py-3 hover:bg-green-500/15 transition-colors duration-150 border-b border-white/5 last:border-0"
         style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 100}ms">
             <div class="relative shrink-0">
-              <img src="${ep.image || '/images/episodes/episode-default.png'}" alt="${ep.name}" class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10 ">
-            </div>
+              <img src="/images/episodes/episode-default.${imgQualityType}" alt="${ep.name}" class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10 "
+              loading="lazy" />
+              </div>
             <div class="min-w-0">
               <p class="text-sm font-medium text-white truncate leading-tight">${ep.name}</p>
               <p class="text-xs text-gray-500 truncate">${ep.species}</p>
             </div>
-        <div class="ml-auto text-xs text-gray-600 font-mono tracking-wide">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h1.5" /><path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>        
-          </a>
-          </div>
           </div>
           `).join('')}
-          </div>
-          
-          </div>
+          </div>  
+        </div>
     </div>
   </div>
 </div>

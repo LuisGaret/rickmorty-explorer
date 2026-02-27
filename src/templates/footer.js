@@ -1,4 +1,4 @@
-import rickymortyLogo from "/images/icons/logo.png";
+import rickymortyLogo from "/images/icons/logo60x60.png";
 
 export const footer = () => {
     const view = `

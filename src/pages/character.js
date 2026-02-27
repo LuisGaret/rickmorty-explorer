@@ -1,9 +1,10 @@
 import { getCharacters } from "../utils/getCharacters";
 import { getHash } from "../utils/getHash";
 import { getEpisodes } from "../utils/getEpisodes";
+import { imgQuality } from "../utils/imgQuality";
 
 export const Character = async () => {
-
+const imgQualityType = imgQuality();      
 const hash = getHash();
 const routeArray = hash.split('/');
 const id = routeArray[2]
@@ -20,14 +21,10 @@ const view = `
 <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
   <div class="max-w-6xl mx-auto mb-10 flex justify-between">
     <a href="#/characters/"
-      class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
+      class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
       <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
       Characters
     </a>
-    <button id="reloadButton" onClick="window.location.reload()"
-          class="shrink-0 flex items-center gap-2 px-5 py-3 text-green-400 hover:text-white  transition-all duration-400 text-sm font-semibold tracking-widest uppercase cursor-pointer">
-          <span class="group-hover:-translate-x-1 transition-transform duration-200 text-2xl">⟳</span>
-    </button>
   </div>
   <div class="max-w-6xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-gray-900 ">
@@ -109,7 +106,8 @@ const view = `
             </div>
             <div class="lg:hidden ">
               <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">PHOTO</p>
-              <img src="${character.image}" alt="${character.name}.png" class="w-20 h-auto object-cover rounded-lg">
+              <img src="${character.image}" alt="${character.name}.${imgQualityType}" class="w-20 h-auto object-cover rounded-lg"
+              loading="lazy" />
             </div>
             </div>
           </div>
@@ -125,11 +123,11 @@ const view = `
           ${episodes.map((ep, i) => `
             <a href="#/episode/${ep.id}"class="group flex items-center gap-1 text-gray-500 hover:text-green-400 transition-colors duration-200 font-semibold">
           <div
-                    style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 100}ms"
-            class="flex items-center gap-3 px-4 py-3 hover:bg-green-500/15 transition-colors duration-150 border-b border-white/5 last:border-0">
+            style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 100}ms"
+            class="flex items-center gap-3 px-4 py-3  transition-colors duration-150 border-b border-white/5 last:border-0">
             <div class="relative shrink-0">
-            <img 
-              src="/images/episodes/episode-${ep.id}.png"
+            <img  loading="lazy"
+              src="/images/episodes/episode-${ep.id}.${imgQualityType}"
               alt="${ep.name}"
               class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10"
             />            </div>

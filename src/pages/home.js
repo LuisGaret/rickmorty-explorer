@@ -1,19 +1,21 @@
-import rickymortyLogo from "/images/icons/logo.png";
+import rickymortyLogo from "/images/icons/logo60x60.png";
+import { imgQuality } from "../utils/imgQuality";
 
 export const Home = () => {
 const view = `
 <section class="py-6 relative min-h-screen overflow-hidden flex items-center" style="
-      background-image:url('https://wallpapersok.com/images/high/image-rick-and-morty-in-1080-x-1920-resolution-dm5xxmoff659btk7.jpg');
+      background-image:url('images/home/home-bg.jpg');
       background-size:cover;
       background-position:center;">
   <div class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]"></div>
   <div class="absolute inset-0 bg-black/75"></div>
   <div class="relative z-10 w-full px-6 lg:px-20">
     <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-      <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-10 shadow-2xl animate-fadeUp">
+      <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-10 animate-fadeUp">
         <a href="#/home/" class="inline-flex items-center gap-3 group mb-8">
-          <img src="${rickymortyLogo}" alt="logo"
-            class="w-15 h-15 object-contain group-hover:scale-110 transition duration-300" />
+          <img src="${rickymortyLogo}"
+           alt="logo"
+           class="w-15 h-15 object-contain group-hover:scale-110 transition duration-300" />
           <div>
             <p class="text-xl font-black text-white">
               RICK & MORTY
@@ -38,7 +40,7 @@ const view = `
       transition-all duration-300">
             <!-- Imagen preview -->
             <div class="w-full aspect-video rounded-lg overflow-hidden bg-black/40">
-              <img src="/images/episodes/episode-default.png" alt="Characters" class="w-full h-full object-cover grayscale group-hover:grayscale-0
+              <img src="/images/episodes/episode-default.${imgQuality()}" alt="Characters" class="w-full h-full object-cover grayscale group-hover:grayscale-0
           scale-105 group-hover:scale-110 transition-all duration-500" />
               <div
                 class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
@@ -64,8 +66,9 @@ const view = `
       transition-all duration-300">
             <!-- Imagen preview -->
             <div class="w-full aspect-video rounded-lg overflow-hidden bg-black/40">
-              <img src="/images/episodes/episode-1.png" alt="Episodes" class="w-full h-full object-cover grayscale group-hover:grayscale-0
-          scale-105 group-hover:scale-110 transition-all duration-500" />
+              <img src="/images/episodes/episode-1.${imgQuality()}" alt="Episodes" 
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0
+              scale-105 group-hover:scale-110 transition-all duration-500" />
               <div
                 class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
               </div>

@@ -1,4 +1,4 @@
-import rickymortyLogo from "/images/icons/logo.png";
+import rickymortyLogo from "/images/icons/logo60x60.png";
 
 export const Header = () => {
   const view = `
@@ -36,7 +36,7 @@ export const Header = () => {
     <li id="searchContainer1">
       <div class="max-w-6xl mx-auto">
         <div
-          class="flex items-center border border-gray-700 bg-gray-900/60 rounded-xl overflow-hidden focus-within:border-green-400/60 focus-within:shadow-lg focus-within:shadow-green-500/10 transition-all duration-300">
+          class="flex items-center border border-gray-700 bg-gray-900/60 rounded-xl overflow-hidden focus-within:border-green-400/60  transition-all duration-300">
           <span class="pl-4 text-gray-500 shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
