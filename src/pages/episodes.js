@@ -13,16 +13,10 @@ const episodes = await getEpisodes(`?page=${page}`);
 
 const view = `
 <div class="min-h-screen bg-[#0e0e0e] font-sans">
-  <div class="px-8 lg:px-16 pb-6 lg:flex items-center justify-between">
-    <div>
-      <p class="text-[11px] uppercase tracking-[0.2em] text-gray-300 mb-1">Page: ${page}</p>
-      <h1 class="text-2xl font-black text-white">Episodes</h1>
-      </div>
-      ${resultPagination(true, episodes, page, "episodes")} 
-    </div>
-  <div class="mx-8 lg:mx-16 h-px bg-linear-to-r from-transparent via-white/10 to-transparent mb-10"></div>
-  <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 px-8 lg:px-16 pb-16">
-    ${episodes.results.map((episode, i) => `
+${resultPagination(true, episodes, page, "episodes")} 
+<div class="mx-8 lg:mx-16 h-px bg-linear-to-r from-transparent via-white/10 to-transparent mb-10"></div>
+<div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 px-8 lg:px-16 pb-16">
+${episodes.results.map((episode, i) => `
 
     <a href="#/episode/${episode.id}" class="group relative block overflow-hidden rounded-xl bg-[#0e0e0e]
              border border-white/4 transition-all duration-500
@@ -97,8 +91,15 @@ const view = `
   </div>
 </div>
     ${resultPagination(true, episodes, page, "episodes")} 
-
 </div>
+    <style>
+      #episodesLink {
+        color: #68D391 !important;
+      }
+      #episodesLink span{
+        width: 100% !important;
+      }
+    </style>
 `;
 return view;
 

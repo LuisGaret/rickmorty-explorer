@@ -1,33 +1,20 @@
 import '../styles/style.css';
+import scroll from "../utils/scroll.js";
 import { Header } from "../templates/header";
 import { footer } from "../templates/footer";
-
-import { Characters } from "../pages/characters.js";
-import { Character } from "../pages/character.js";
-import { Error404 } from "../pages/Error404.js";
-import { Episodes } from "../pages/episodes.js";
-import { Episode } from "../pages/episode.js";
-import { Home } from "../pages/home.js";
-
 import { getHash } from "../utils/getHash.js";
 import { resolveRoutes } from "../utils/resolveRoutes.js";
-import scroll from "../utils/scroll.js";
+import { searchInput } from "../utils/searchInput";
 import { homeSearch } from "../utils/homeSearch.js";
-
-const rutas = {
-    '/': Home,
-    '/characters/': Characters,
-    '/character/:id': Character,
-    '/page/:id': Characters,
-    '/search/:name': Characters,
-    '/episodes/': Episodes,
-    '/episode/:id': Episode,
-};
-
 // evitar doble render
 let isRender = false;
 
 export const router = async () => {
+
+    // obtener la ruta hasheada
+    let hash = getHash();
+    let route = resolveRoutes(hash);
+    // console.log(route);
 
     if (isRender) return;
     isRender = true;
@@ -37,35 +24,51 @@ export const router = async () => {
     const footerElement = document.querySelector('footer');
 
 
-    footerElement.innerHTML = footer();
-    header.innerHTML = Header();
+    let render;
+    let showLayouts = true;
 
-    const searchInput = document.querySelector('#searchInput')
-    const searchButton = document.querySelector('#searchButton');
+    switch (route) {
+        case "/":
+        case "/home/":
+            render = (await import("../pages/home.js")).Home;
+            showLayouts = false;
+            break;
 
-    if (searchInput) {
-        searchInput.addEventListener("keyup", (e) => {
-            if (e.key === "Enter") {
-                location.hash = `#/search/${e.target.value}`;
-            }
-        });
+        case "/characters/":
+        case "/page/:id":
+        case "/search/:name":
+            render = (await import("../pages/characters.js")).Characters;
+            break;
+
+        case "/character/:id":
+            render = (await import("../pages/character.js")).Character;
+            break;
+
+        case "/episodes/":
+            render = (await import("../pages/episodes.js")).Episodes;
+            break;
+
+        case "/episode/:id":
+            render = (await import("../pages/episode.js")).Episode;
+            break;
+
+        default:
+            showLayouts = false;
+            render = (await import("../pages/Error404.js")).Error404;
     }
 
-    if (searchButton) {
-        searchButton.addEventListener("click", () => {
-            // alert(searchInput.value);
-            location.hash = `#/search/${searchInput.value}`;
 
-        });
+    if (showLayouts) {
+        header.classList.remove('hidden');
+        footerElement.classList.remove('hidden');
+        header.innerHTML = Header();
+        footerElement.innerHTML = footer();
+        searchInput();
+    } else {
+        homeSearch(route, header, footerElement);
     }
 
-
-    let hash = getHash();
-    let route = resolveRoutes(hash);
-    homeSearch(route, header, footerElement);
-    let render = rutas[route] || Error404;
     main.innerHTML = await render();
     scroll();
-
     isRender = false;
 }

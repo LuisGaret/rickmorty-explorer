@@ -104,7 +104,7 @@ const view = `
               <p class="text-7xl font-black text-white leading-none">${character.episode.length}</p>
               <p class="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-1">EPISODES</p>
             </div>
-            <div class="lg:hidden ">
+            <div class="lg:hidden">
               <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">PHOTO</p>
               <img src="${character.image}" alt="${character.name}.${imgQualityType}" class="w-20 h-auto object-cover rounded-lg"
               loading="lazy" />

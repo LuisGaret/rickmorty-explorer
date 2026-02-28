@@ -6,7 +6,7 @@ body {
 
 /* link de nav */
 .text-sm-link {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 @keyframes cardReveal {

@@ -14,19 +14,19 @@ export const Header = () => {
       </a>
     </li>
     <li>
-    <a href="/"
+    <a href="/" id="homeLink"
       class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
       HOME
-      <span
-        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
+        <span
+          class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
     </a>
-      <a href="#/characters/"
+      <a href="#/characters/" id="charactersLink"
         class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
         Characters
         <span
           class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
       </a>
-      <a href="#/episodes/"
+      <a href="#/episodes/" id="episodesLink"
         class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
         Episodes
         <span
@@ -50,7 +50,7 @@ export const Header = () => {
           <div class="w-px h-6 bg-gray-700 shrink-0"></div>
           
           <button id="searchButton"
-            class="hidden shrink-0 items-center gap-2 px-5 py-3 text-gray-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 text-sm font-semibold tracking-widest uppercase cursor-pointer">
+            class=" shrink-0 items-center gap-2 px-5 py-3 text-gray-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 text-sm font-semibold tracking-widest uppercase cursor-pointer">
             Search
           </button>
 

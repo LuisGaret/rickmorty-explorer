@@ -14,7 +14,7 @@ const view = `
       <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-10 animate-fadeUp">
         <a href="#/home/" class="inline-flex items-center gap-3 group mb-8">
           <img src="${rickymortyLogo}"
-           alt="logo"
+           alt="logo "
            class="w-15 h-15 object-contain group-hover:scale-110 transition duration-300" />
           <div>
             <p class="text-xl font-black text-white">
@@ -105,16 +105,23 @@ const view = `
         </div>
         <div class="bg-black/40 border border-white/10 rounded-xl p-5">
           <p class="text-white/50 text-sm leading-relaxed">
-            Use the search bar to find any character from the Rick & Morty universe
+            Use the <span class="text-green-400 cursor-pointer" id="spanFocusSearch">search bar</span> to find any character from the Rick & Morty universe
             and navigate through dimensions.
+          </p>
+        </div>
+  
+        <div class="bg-black/40 border border-white/10 rounded-xl p-5">
+          <p class="text-white/50 text-sm leading-relaxed">
+            Created by <a href="https://github.com/MarkoEv" target="_blank" class="text-green-400 hover:underline">
+            @MarkoEv.</a> a project to explore the Rick & Morty API.
+          </p>
+         </div>
           </p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
 `;
 
 return view;

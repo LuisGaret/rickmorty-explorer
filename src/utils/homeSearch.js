@@ -1,3 +1,5 @@
+import { router } from "../routes";
+
 export const homeSearch = (route, header, footerElement) => {
      if (route === '/') {
         header.classList.add('hidden');
@@ -17,9 +19,17 @@ export const homeSearch = (route, header, footerElement) => {
                 const value = homeSearchInput?.value.trim();
                 if (value) location.hash = `#/search/${value}`;
             });
+            spanFocusSearch(homeSearchInput);
         });
-    } else {
-        header.classList.remove('hidden');
-        footerElement.classList.remove('hidden');
+     }
+}
+
+function spanFocusSearch(homeSearchInput) {
+    const spanFocusSearch = document.querySelector('#spanFocusSearch');
+    if (spanFocusSearch) {
+        spanFocusSearch.addEventListener('click', () => {
+            homeSearchInput?.focus();
+        });
     }
 }
+
