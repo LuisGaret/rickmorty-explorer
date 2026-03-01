@@ -11,8 +11,3 @@ const qualitys = {
 return qualitys[type] || "jpg";
 
 }
-
-export const line = () => {
-    const type = navigator.connection?.effectiveType || '4g';    
-    return type;
-}
