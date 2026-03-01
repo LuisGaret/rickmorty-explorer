@@ -22,7 +22,7 @@ const charactersEpisode = await Promise.all(episode.characters.map(async (charac
 const view = `
 <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
   <div class="max-w-6xl mx-auto mb-10 flex justify-between">
-    <a href="#/characters/"
+    <a href="#/episodes/"
       class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
       <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
       Episodes
@@ -78,6 +78,7 @@ const view = `
   <div class="overflow-y-auto"
     style="max-height: 300px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
     ${charactersEpisode.map((ep, i) => `
+       <a href="#/character/${ep.id}"class="group flex items-center gap-1 text-gray-500 hover:text-green-400 transition-colors duration-200 font-semibold">
         <div class="flex items-center gap-3 px-4 py-3 hover:bg-green-500/15 transition-colors duration-150 border-b border-white/5 last:border-0"
         style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 100}ms">
             <div class="relative shrink-0">
@@ -87,6 +88,10 @@ const view = `
             <div class="min-w-0">
               <p class="text-sm font-medium text-white truncate leading-tight">${ep.name}</p>
               <p class="text-xs text-gray-500 truncate">${ep.species}</p>
+            </div>
+              <div class="ml-auto text-xs text-gray-600 font-mono tracking-wide">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-world-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9 9" /><path d="M3.6 9h16.8" /><path d="M3.6 15h7.9" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" /><path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>
+                </a>
             </div>
           </div>
           `).join('')}

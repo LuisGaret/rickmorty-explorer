@@ -22,6 +22,7 @@ export const getCharacters = async (endpoint = "", retries = 3) => {
     }
 
     if (!response.ok) {
+      (await import("../components/buttonSpin")).buttonSpin("Solvin");
       throw new Error(response.status);
     }
 
@@ -32,6 +33,7 @@ export const getCharacters = async (endpoint = "", retries = 3) => {
     return data;
 
   } catch (error) {
+    (await import("../components/buttonSpin")).buttonSpin("solvin");
     console.error("Error fetching data:", error);
     return null;
   }

@@ -16,6 +16,7 @@ export const router = async () => {
     let route = resolveRoutes(hash);
     // console.log(route);
 
+
     if (isRender) return;
     isRender = true;
 
@@ -59,6 +60,7 @@ export const router = async () => {
 
 
     if (showLayouts) {
+        
         header.classList.remove('hidden');
         footerElement.classList.remove('hidden');
         header.innerHTML = Header();

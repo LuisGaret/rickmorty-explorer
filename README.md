@@ -1,8 +1,11 @@
-# Rick & Morty Explorer 🚀
+# Rick & Morty Explorer 
 
 Una aplicación web interactiva para explorar personajes, episodios y ubicaciones del universo de Rick y Morty, construida con tecnologías modernas.
 
-## 📋 Características
+# Demo en vivo
+[rickmorty-explorer-iota.vercel.app](https://rickmorty-explorer-iota.vercel.app/)
+
+## Características
 
 - **Exploración de Personajes**: Navega por todos los personajes de la serie con información detallada
 - **Catálogo de Episodios**: Descubre todos los episodios con descripciones y participantes
@@ -12,7 +15,7 @@ Una aplicación web interactiva para explorar personajes, episodios y ubicacione
 - **Animaciones Fluidas**: Transiciones elegantes con Tailwind CSS
 - **Caché Inteligente**: Optimización de solicitudes API para mejor rendimiento
 
-## 🛠️ Stack Tecnológico
+##  Stack Tecnológico
 
 - **Frontend Framework**: Vanilla JavaScript (SPA)
 - **Bundler**: [Vite](https://vitejs.dev/)
@@ -20,7 +23,7 @@ Una aplicación web interactiva para explorar personajes, episodios y ubicacione
 - **UI Enhancements**: [NProgress](https://ricostacruz.com/nprogress/)
 - **API**: [Rick and Morty API](https://rickandmortyapi.com/)
 
-## 📦 Instalación
+##  Instalación
 
 ```bash
 # Clonar el repositorio
@@ -39,7 +42,7 @@ npm run build
 npm run preview
 ```
 
-## 📁 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 public
@@ -72,7 +75,7 @@ src/
     └── style.css          # Estilos globales
 ```
 
-## 🗺️ Rutas Disponibles
+##  Rutas Disponibles
 
 | Ruta | Descripción |
 |------|-------------|
@@ -84,7 +87,7 @@ src/
 | `/search/:name` | Búsqueda de personajes |
 | `/page/:id` | Paginación de personajes |
 
-## 🚀 Características Principales
+##  Características Principales
 
 ### Sistema de Rutas
 El router SPA utiliza hash navigation para navegación sin recarga de página. Ver [`resolveRoutes`](src/utils/resolveRoutes.js).
@@ -100,7 +103,7 @@ Las funciones [`getCharacters`](src/utils/getCharacters.js) y [`getEpisodes`](sr
 ### Búsqueda
 La [`homeSearch`](src/utils/homeSearch.js) permite buscar personajes desde la página de inicio.
 
-## 🎨 Diseño Visual
+##  Diseño Visual
 
 - **Tema**: Oscuro con acentos verde neón (#4ade80)
 - **Tipografía**: Fuentes personalizadas con tracking mejorado
@@ -114,7 +117,7 @@ La aplicación es completamente responsiva:
 - **Tablet**: Grid de 3 columnas
 - **Desktop**: Grid de 5 columnas (personajes) / 4 columnas (episodios)
 
-## 📊 Componentes Clave
+##  Componentes Clave
 
 | Componente | Descripción |
 |------------|------------|
@@ -123,11 +126,11 @@ La aplicación es completamente responsiva:
 | [Pagination](src/utils/pagination.js) | Controles de paginación |
 | [scroll](src/utils/scroll.js) | Desplazamiento suave a detalles |
 
-## 🔧 Configuración Vite
+##  Configuración Vite
 
 Ver [`vite.config.js`](vite.config.js) para la configuración de plugins y build.
 
-## 📝 Dependencias
+##  Dependencias
 
 ```json
 {
@@ -143,12 +146,12 @@ Ver [`vite.config.js`](vite.config.js) para la configuración de plugins y build
 }
 ```
 
-## 👨‍💻 Autor
+##  Autor
 
 **Marco Antonio Evangelista Armenta**  
 [@MarkoEv](https://github.com/MarkoEv)
 
-## 📄 Licencia
+##  Licencia
 
 Todos los derechos reservados © 2026
 
@@ -158,6 +161,3 @@ Todos los derechos reservados © 2026
 - [Documentación de Vite](https://vitejs.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 
----
-
-**Estado**: ✅ En producción en [rickmorty-explorer-iota.vercel.app](https://rickmorty-explorer-iota.vercel.app/)
