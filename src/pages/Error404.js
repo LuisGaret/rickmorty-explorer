@@ -1,6 +1,10 @@
+import { secondsLoad } from "../components/secondsLoad";
+
 export const Error404 = () => {
-  const view = `
-  <div class="animate-fadeUp  bg-black px-4 font-mon py-5">  
+    const spanCount = document.getElementById("spanCount");
+
+    const view = `
+  <div class="animate-fadeUp bg-black px-4 font-mon py-5">  
   <div class="max-w-6xl mx-auto mb-10">
         <button onClick="window.location.href='/'" 
             class="cursor-pointer group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
@@ -8,12 +12,15 @@ export const Error404 = () => {
             Back
         </button>
     </div>
-    <div class=" flex flex-col items-center justify-center px-6 gap-8">
+
+    <div class="flex flex-col items-center justify-center px-6 gap-8">
+
         <div class="relative flex items-center justify-center">
             <div class="absolute w-48 h-48 rounded-full border border-red-500/10 animate-ping"
                 style="animation-duration: 3s;"></div>
             <div class="absolute w-36 h-36 rounded-full border border-red-500/15"></div>
             <div class="absolute w-24 h-24 rounded-full border border-red-500/20"></div>
+
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 class="w-16 h-16 text-red-400/90" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -24,31 +31,46 @@ export const Error404 = () => {
                 <path d="M17 7 L14 11" stroke="#f87171" stroke-width="0.8" stroke-dasharray="1.5 1" />
             </svg>
         </div>
+
         <div class="text-center space-y-2 max-w-sm">
-            <p class="text-[10px] text-red-400/80 tracking-[0.4em] uppercase font-bold">Portal roto · Error 404</p>
+            <p class="text-[10px] text-red-400/80 tracking-[0.4em] uppercase font-bold">
+              Broken Portal · Error 404
+            </p>
+
             <h2 class="text-5xl font-black text-white tracking-tighter leading-tight">
-                Dimensión<br />no encontrada
+                Dimension<br />Not Found
             </h2>
+
             <p class="text-2xs text-slate-300 leading-relaxed pt-1">
-                Rick debe haber explotado el servidor otra vez.<br />Intenta regresar al universo correcto.
+                Rick probably blew up the server again.<br />
+                Try returning to the correct universe.
             </p>
         </div>
+
         <div class="flex items-center gap-3 w-full max-w-xs">
-            <div class="flex-1 h-px bg-slate-400"></div>
-            <span class="text-[10px] text-slate-400 tracking-widest uppercase">Rick & Morty Explorer</span>
-            <div class="flex-1 h-px bg-slate-400"></div>
+            <div class="flex-1 h-px bg-slate-100"></div>
+
+            <span class="text-[15px] text-slate-100 tracking-widest uppercase">
+              Resolving in
+              <span class="text-red-400" id="spanCount">${secondsLoad()}</span>
+            </span>
+
+            <div class="flex-1 h-px bg-slate-100"></div>
         </div>
+
     </div>
 </div>
-    <style>
-      #charactersLink {
-        color: red !important;
-      }
-      #charactersLink span{
-        width: 100% !important;
-        background-color: red !important;
-      }
-    </style>
+
+<style>
+  #charactersLink {
+    color: red !important;
+  }
+  #charactersLink span{
+    width: 100% !important;
+    background-color: red !important;
+  }
+</style>
         `;
+
     return view;
 }

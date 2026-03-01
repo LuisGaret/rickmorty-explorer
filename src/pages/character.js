@@ -114,10 +114,27 @@ const view = `
         </div>
       </div>
       <div class="lg:col-span-4 bg-[#0f0f0f] border border-white/10 rounded-xl overflow-hidden">
-        <div class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-widest text-gray-300">EPISODES</span>
-          <span class="text-xs text-gray-300">${character.episode.length}</span>
-        </div>
+            <div class="px-7 py-3 border-b border-white/10 flex items-center justify-between">
+    <span class="text-xs font-semibold uppercase tracking-widest text-gray-300">PARTICIPANTS</span>
+    <span class="text-xs text-gray-300">
+    <button class="text-white-500 hover:text-green-500 cursor-pointer" onClick="window.location.reload()">
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         width="14" 
+         height="14" 
+         viewBox="0 0 24 24" 
+         fill="none" 
+         stroke="currentColor" 
+         stroke-width="2" 
+         stroke-linecap="round" 
+         stroke-linejoin="round" 
+         class="icon icon-tabler icons-tabler-outline icon-tabler-refresh">
+         <path stroke="none" d="M0 0h24v24H0z" 
+         fill="none"/>
+         <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" /><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+    </svg>
+    </button>
+    </span>
+  </div>
         <div class="overflow-y-auto"
           style="max-height: 350px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
           ${episodes.map((ep, i) => `

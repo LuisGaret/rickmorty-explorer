@@ -12,9 +12,11 @@ function okRuta() {
     if (route === "/search/:name") return window.location.href="#/characters";
 }
 
-export const buttonSpin = (text = "Procesing") => {
+export const solvinSpin = (text = "Procesing") => {
   const tagLi = document.getElementById("li-time");
-  
+  const nav = document.getElementById("nav-header");
+  const imgLogo = document.getElementById("img-logo");
+
   const view = `
       <div class="flex items-center justify-center"><button type="button"
           class="inline-flex cursor-not-allowed items-center rounded-md bg-green-400/30 px-4 py-2 text-sm leading-6 font-semibold text-white transition duration-150"
@@ -24,13 +26,15 @@ export const buttonSpin = (text = "Procesing") => {
       </div>
     `;
 
-  tagLi.classList.add("animate-pulse")
+  nav.classList.add("animate-pulse")
+  imgLogo.classList.add("animate-spin");
   tagLi.innerHTML = view
 
   const setTime = setInterval(() => {
     okRuta()
     tagLi.innerHTML = "";
-    tagLi.classList.remove("animate-pulse")
+    imgLogo.classList.remove("animate-spin");
+    nav.classList.remove("animate-pulse")
     window.location.reload()
     
     if (setTime) {

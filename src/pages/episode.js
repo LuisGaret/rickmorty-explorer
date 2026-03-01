@@ -41,7 +41,7 @@ const view = `
         </div>
         <div class="absolute inset-0 bg-[linear-gradient(to_top,black_0%,transparent_50%)]"></div>
       </div>
-      <div class="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-gray-900 flex flex-col">
+      <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-gray-900 flex flex-col">
         <div class="p-6 border-b border-gray-900">
           <div class="space-y-5">
             <div class="flex flex-col gap-1">
@@ -70,10 +70,27 @@ const view = `
         </div>
         </div>
       </div>
-      <div class="lg:col-span-3 bg-[#0f0f0f] border border-white/10 rounded-xl overflow-hidden">
-    <div class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
+      <div class="lg:col-span-4 bg-[#0f0f0f] border border-white/10 rounded-xl overflow-hidden">
+    <div class="px-7 py-3 border-b border-white/10 flex items-center justify-between">
     <span class="text-xs font-semibold uppercase tracking-widest text-gray-300">PARTICIPANTS</span>
-    <span class="text-xs text-gray-300">${charactersEpisode.length}</span>
+    <span class="text-xs text-gray-300">
+    <button class="text-white hover:text-green-500 cursor-pointer" onClick="window.location.reload()">
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         width="14" 
+         height="14" 
+         viewBox="0 0 24 24" 
+         fill="none" 
+         stroke="currentColor" 
+         stroke-width="2" 
+         stroke-linecap="round" 
+         stroke-linejoin="round" 
+         class=" icon icon-tabler icons-tabler-outline icon-tabler-refresh">
+         <path stroke="none" d="M0 0h24v24H0z" 
+         fill="none"/>
+         <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" /><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+    </svg>
+    </button>
+    </span>
   </div>
   <div class="overflow-y-auto"
     style="max-height: 300px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
@@ -82,7 +99,7 @@ const view = `
         <div class="flex items-center gap-3 px-4 py-3 hover:bg-green-500/15 transition-colors duration-150 border-b border-white/5 last:border-0"
         style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 100}ms">
             <div class="relative shrink-0">
-              <img src="/images/episodes/episode-default.${imgQualityType}" alt="${ep.name}" class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10 "
+              <img src="${ep.image}" alt="${ep.name}" class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10 "
               loading="lazy" />
               </div>
             <div class="min-w-0">
