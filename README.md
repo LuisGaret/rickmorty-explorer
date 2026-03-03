@@ -20,7 +20,6 @@ Una aplicación web interactiva para explorar personajes, episodios y ubicacione
 - **Frontend Framework**: Vanilla JavaScript (SPA)
 - **Bundler**: [Vite](https://vitejs.dev/)
 - **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **UI Enhancements**: [NProgress](https://ricostacruz.com/nprogress/)
 - **API**: [Rick and Morty API](https://rickandmortyapi.com/)
 
 ##  Instalación
