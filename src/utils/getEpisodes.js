@@ -1,8 +1,7 @@
-const API = "https://rickandmortyapi.com/api/episode/";
+const API = 'https://rickandmortyapi.com/api/episode/';
 const cache = new Map();
 
-export const getEpisodes = async (endpoint = "", retries = 3) => {
-
+export const getEpisodes = async (endpoint = '', retries = 3) => {
   // evita reques duplicados
   if (cache.has(endpoint)) {
     return cache.get(endpoint);
@@ -14,10 +13,10 @@ export const getEpisodes = async (endpoint = "", retries = 3) => {
 
       if (response.status === 429) {
         if (retries <= 0) {
-          throw new Error("Rate limit exceeded");
+          throw new Error('Rate limit exceeded');
         }
 
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise((r) => setTimeout(r, 2000));
         return getEpisodes(endpoint, retries - 1);
       }
 
@@ -26,11 +25,10 @@ export const getEpisodes = async (endpoint = "", retries = 3) => {
       }
 
       return await response.json();
-
     } catch (error) {
       // evita cache roto
-      cache.delete(endpoint); 
-      console.error("Error fetching data:", error);
+      cache.delete(endpoint);
+      console.error('Error fetching data:', error);
       return null;
     }
   })();

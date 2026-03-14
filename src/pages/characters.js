@@ -1,40 +1,37 @@
-import { getHash } from "../utils/getHash";
-import { getCharacters } from "../utils/getCharacters";
-import { resultPagination } from "../utils/pagination";
+import { getHash } from '../utils/getHash';
+import { getCharacters } from '../utils/getCharacters';
+import { resultPagination } from '../utils/pagination';
 
 export const Characters = async () => {
-
   const hash = getHash();
   const routeArray = hash.split('/');
   const page = routeArray[2] || 15;
-  const search = routeArray[1] === "search" ? routeArray[2] : null;
+  const search = routeArray[1] === 'search' ? routeArray[2] : null;
 
   let characters;
   let pagination;
 
-
   if (search) {
     characters = await getCharacters(`?name=${search}`);
     pagination = false;
-
   } else {
     characters = await getCharacters(`?page=${page}`);
     pagination = true;
   }
 
   if (!characters?.results) {
-    return window.location.hash = '/';
+    return (window.location.hash = '/');
   }
 
   const view = `
 <div class="bg-[#0e0e0e] font-sans">
-  ${resultPagination(pagination, characters, page, "characters")}
-
+  ${resultPagination(pagination, characters, page, 'characters')}
   </div>
-  
   <div class="mx-8 lg:mx-16 h-px bg-linear-to-r from-transparent via-white/10 to-transparent mb-10"></div>
   <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4  lg:m-10 ">
-    ${characters.results.map((character, i) => `
+    ${characters.results
+      .map(
+        (character, i) => `
     <a href="#/character/${character.id}" title="View: ${character.name}" style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 40}ms"
       class="group relative flex flex-col rounded-xl overflow-hidden border border-gray-800/80 bg-gray-900/60 backdrop-blur-sm hover:border-green-400/10 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer">
       <div
@@ -54,9 +51,11 @@ export const Characters = async () => {
           class="text-xs font-semibold text-green-400/80 tracking-widest uppercase group-hover:text-green-300 transition-colors duration-200">${character.species}</span>
       </div>
     </a>    
-    `).join('')}
+    `
+      )
+      .join('')}
     </div>
-      ${resultPagination(pagination, characters, page, "characters")}
+      ${resultPagination(pagination, characters, page, 'characters')}
     </div>
     <style>
       #charactersLink {
@@ -68,4 +67,4 @@ export const Characters = async () => {
     </style>
   `;
   return view;
-}
+};

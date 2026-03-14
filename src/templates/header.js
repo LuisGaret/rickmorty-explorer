@@ -1,4 +1,4 @@
-import rickymortyLogo from "/images/icons/logo60x60.png";
+import rickymortyLogo from '/images/icons/logo60x60.png';
 
 export const Header = () => {
   const view = `
@@ -16,19 +16,19 @@ export const Header = () => {
     <li>
       <a href="/" id="homeLink"
         class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
-        HOME
+        INICIO
         <span
           class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
       </a>
       <a href="#/characters/" id="charactersLink"
         class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
-        Characters
+        Personajes
         <span
           class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
       </a>
       <a href="#/episodes/" id="episodesLink"
         class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
-        Episodes
+        Episodios
         <span
           class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
       </a>
@@ -45,21 +45,18 @@ export const Header = () => {
             </svg>
           </span>
 
-          <input id="searchInput" type="text" placeholder="Search character..."
+          <input id="searchInput" type="text" placeholder="Escribe el nombre del personaje..."
             class="flex-1 md:w-30 lg:w-100 sm:w-40 bg-transparent text-gray-200 placeholder-gray-500 px-3 py-3 text-sm outline-none" />
           <div class="w-px h-6 bg-gray-700 shrink-0"></div>
 
           <button id="searchButton"
             class=" shrink-0 items-center gap-2 px-5 py-3 text-gray-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 text-sm font-semibold tracking-widest uppercase cursor-pointer">
-            Search
+            Buscar
           </button>
           </div>
     </li>
-
   </ul>
-
 </nav>
 `;
   return view;
-
-}
+};

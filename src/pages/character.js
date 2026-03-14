@@ -1,23 +1,24 @@
-import { getCharacters } from "../utils/getCharacters";
-import { getHash } from "../utils/getHash";
-import { getEpisodes } from "../utils/getEpisodes";
-import { imgQuality } from "../utils/imgQuality";
+import { getCharacters } from '../utils/getCharacters';
+import { getHash } from '../utils/getHash';
+import { getEpisodes } from '../utils/getEpisodes';
+import { imgQuality } from '../utils/imgQuality';
 
 export const Character = async () => {
-const imgQualityType = imgQuality();      
-const hash = getHash();
-const routeArray = hash.split('/');
-const id = routeArray[2]
-const character = await getCharacters(id);
+  const imgQualityType = imgQuality();
+  const hash = getHash();
+  const routeArray = hash.split('/');
+  const id = routeArray[2];
+  const character = await getCharacters(id);
 
+  const episodes = await Promise.all(
+    character.episode.map(async (episodeUrl) => {
+      const episodeId = episodeUrl.split('/').pop();
+      const episode = await getEpisodes(episodeId);
+      return episode;
+    })
+  );
 
-const episodes = await Promise.all(character.episode.map(async (episodeUrl) => {
-const episodeId = episodeUrl.split('/').pop();
-const episode = await getEpisodes(episodeId);
-return episode;
-}));
-
-const view = `
+  const view = `
 <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
   <div class="max-w-6xl mx-auto mb-10 flex justify-between">
     <a href="#/characters/"
@@ -42,7 +43,7 @@ const view = `
         <div class="p-6 border-b border-gray-900">
           <div class="space-y-5">
             <div class="flex flex-col gap-1">
-              <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">NAME</span>
+              <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">NOMBRE</span>
               <div class="mb-2 overflow-hidden">
                 <h1
                   class="text-[clamp(2rem,3vw,8rem)] font-black text-white leading-none tracking-tighter uppercase mix-blend-difference">
@@ -56,14 +57,18 @@ const view = `
 
                 <div class="flex items-center gap-2">
                   <span class="relative flex w-1.5 h-1.5">
-                    ${character.status === 'Alive' ? `
+                    ${
+                      character.status === 'Alive'
+                        ? `
                     <span
                       class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-green-400"></span>
-                    ` : `
+                    `
+                        : `
                     <span
                       class="relative inline-flex w-1.5 h-1.5 rounded-full ${character.status === 'Dead' ? 'bg-red-600' : 'bg-gray-600'}"></span>
-                    `}
+                    `
+                    }
                   </span>
                   <span
                     class="text-xs tracking-[0.4em] uppercase ${character.status === 'Alive' ? 'text-green-400' : character.status === 'Dead' ? 'text-red-500' : 'text-gray-200'}">${character.status}</span>
@@ -78,34 +83,34 @@ const view = `
 
             <div class="grid grid-cols-2 gap-4">
               <div class="flex flex-col gap-1">
-                <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">Gender</span>
+                <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">GÉNERO</span>
                 <span class="text-sm text-white font-bold">${character.gender || '—'}</span>
               </div>
               <div class="flex flex-col gap-1">
-                <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">Type</span>
+                <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">TIPO</span>
                 <span class="text-sm text-white font-bold">${character.type || '—'}</span>
               </div>
 
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div class="flex flex-col gap-1">
-                <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">Origin</span>
+                <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">ORIGEN</span>
                 <span class="text-sm text-white font-bold leading-snug">${character.origin.name}</span>
               </div>
 
               <div class="flex flex-col gap-1">
-                <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">Location</span>
+                <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">UBICACIÓN</span>
                 <span class="text-sm text-white font-bold leading-snug">${character.location.name}</span>
               </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
             <div class="">
-              <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">APPEARANCES</p>
+              <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">APARICIONES</p>
               <p class="text-7xl font-black text-white leading-none">${character.episode.length}</p>
-              <p class="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-1">EPISODES</p>
+              <p class="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-1">EPISODIOS</p>
             </div>
             <div class="lg:hidden">
-              <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">PHOTO</p>
+              <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">FOTO</p>
               <img src="${character.image}" alt="${character.name}.${imgQualityType}" class="w-20 h-auto object-cover rounded-lg"
               loading="lazy" />
             </div>
@@ -115,7 +120,7 @@ const view = `
       </div>
       <div class="lg:col-span-4 bg-[#0f0f0f] border border-white/10 rounded-xl overflow-hidden">
             <div class="px-7 py-3 border-b border-white/10 flex items-center justify-between">
-    <span class="text-xs font-semibold uppercase tracking-widest text-gray-300">PARTICIPANTS</span>
+    <span class="text-xs font-semibold uppercase tracking-widest text-gray-300">APARICIONES - EPISODIOS</span>
     <span class="text-xs text-gray-300">
     <button class="text-white-500 hover:text-green-500 cursor-pointer" onClick="window.location.reload()">
     <svg xmlns="http://www.w3.org/2000/svg" 
@@ -137,7 +142,9 @@ const view = `
   </div>
         <div class="overflow-y-auto"
           style="max-height: 350px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
-          ${episodes.map((ep, i) => `
+          ${episodes
+            .map(
+              (ep, i) => `
             <a href="#/episode/${ep.id}"class="group flex items-center gap-1 text-gray-500 hover:text-green-400 transition-colors duration-200 font-semibold">
           <div
             style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 100}ms"
@@ -158,12 +165,14 @@ const view = `
                 </a>
             </div>
           </div>
-          `).join('')}
+          `
+            )
+            .join('')}
         </div>
       </div>
     </div>
   </div>
 </div>
 `;
-return view;
-}
+  return view;
+};
