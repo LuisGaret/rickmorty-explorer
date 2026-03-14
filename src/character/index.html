@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <base href="/" />
+
+    <meta name="google-site-verification" content="uWpnHxh3xaAN1XOE7_QykiynnBt1aryyrchHRc_0xqA" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="Rick&Morty Explorer" />
+    <meta property="og:description" content="Explora personajes, episodios y ubicaciones de Rick y Morty." />
+    <meta property="og:image"
+        content="https://rickmorty-explorer-iota.vercel.apphttps://rickmorty-explorer-iota.vercel.app/images/icons/logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rickmorty-explorer-iota.vercel.app/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rick&Morty Explorer" />
+    <meta name="twitter:description" content="Explora personajes, episodios y ubicaciones de Rick y Morty." />
+    <meta name="twitter:image" content="images/icons/logo60x60.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="application-name" content="Rick&Morty Explorer" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Rick&Morty Explorer" />
+    <meta name="author" content="Marco Antonio Evangelista Armenta" />
+    <meta name="keywords"
+        content="Rick&Morty, Rick and Morty, Rick y Morty, personajes de Rick y Morty, episodios de Rick y Morty, ubicaciones de Rick y Morty, datos curiosos de Rick y Morty, imágenes de Rick y Morty, serie animada, aplicación web , characters of Rick and Morty, episodes of Rick and Morty, locations of Rick and Morty, curiosities of Rick and Morty, images of Rick and Morty, animated series, web application" />
+    <meta name="description"
+        content="Rick&Morty Explorer es una aplicación web que te permite explorar el universo de Rick y Morty, con información detallada sobre personajes, episodios y ubicaciones. Descubre datos curiosos, imágenes y más sobre tus personajes favoritos de la serie animada." />
+    <link rel="icon" type="image/png" href="images/icons/logo60x60.png" />
+    <link rel="shortcut icon" href="/images/icons/shortcut.jpeg" type="image/x-icon">
+    <link rel="canonical" href="https://rickmorty-explorer-iota.vercel.app/" />
+    <link rel="dns-prefetch" href="https://rickandmortyapi.com">
+    <link rel="preconnect" href="https://rickandmortyapi.com">
+
+    <title>Rick&Morty Explorer</title>
+</head>
+
+<body>
+    <header class="sticky top-0 z-50 bg-gray-950/50 backdrop-blur-md border-b border-gray-800/60">
+        <main>
+            <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
+                <div class="max-w-6xl mx-auto mb-10 flex justify-between">
+                    <a href="src/characters/"
+                        class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
+                        <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
+                        Characters
+                    </a>
+                </div>
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-gray-900 ">
+                        <div class=" lg:col-span-4 relative overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-900 transition-all duration-1900 cursor-pointer"
+                            style="min-height: 280px;">
+                            <img src="https://rickandmortyapi.com/api/character/avatar/209.jpeg" alt="${character.name}"
+                                class="absolute inset-0 w-full h-full object-cover contrast-125 opacity-80" />
+                            <div
+                                class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
+                            </div>
+                            <div class="absolute inset-0 bg-[linear-gradient(to_top,black_0%,transparent_50%)]"></div>
+                        </div>
+                        <div class="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-gray-900 flex flex-col">
+                            <div class="p-6 border-b border-gray-900">
+                                <div class="space-y-5">
+                                    <div class="flex flex-col gap-1">
+                                        <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">NOMBRE</span>
+                                        <div class="mb-2 overflow-hidden">
+                                            <h1
+                                                class="text-[clamp(2rem,3vw,8rem)] font-black text-white leading-none tracking-tighter uppercase mix-blend-difference">
+                                                nombre
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">Status</span>
+
+                                            <div class="flex items-center gap-2">
+                                                <span class="relative flex w-1.5 h-1.5">
+                                                    status
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">Species</span>
+                                            <span class="text-sm text-white font-bold">especie</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">GÉNERO</span>
+                                            <span class="text-sm text-white font-bold">Género</span>
+                                        </div>
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">TIPO</span>
+                                            <span class="text-sm text-white font-bold">tipo</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="flex flex-col gap-1">
+                                            <span class="text-sm text-white font-bold leading-snug">Origen</span>
+                                        </div>
+
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">UBICACIÓN</span>
+                                            <span class="text-sm text-white font-bold leading-snug">ubicación</span>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="">
+                                            <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">
+                                                APARICIONES
+                                            </p>
+                                            <p class="text-7xl font-black text-white leading-none">
+                                                1</p>
+                                            <p class="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-1">
+                                                EPISODIOS
+                                            </p>
+                                        </div>
+                                        <div class="lg:hidden">
+                                            <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">FOTO
+                                            </p>
+                                            <img src="https://rickandmortyapi.com/api/character/avatar/209.jpeg"
+                                                alt="${character.name}.${imgQualityType}"
+                                                class="w-20 h-auto object-cover rounded-lg" loading="lazy" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-4 bg-[#0f0f0f] border border-white/10 rounded-xl overflow-hidden">
+                            <div class="px-7 py-3 border-b border-white/10 flex items-center justify-between">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-gray-300">APARICIONES
+                                    -
+                                    EPISODIOS</span>
+                                <span class="text-xs text-gray-300">
+                                    <button class="text-white-500 hover:text-green-500 cursor-pointer"
+                                        onClick="window.location.reload()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-refresh">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
+                                            <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
+                                        </svg>
+                                    </button>
+                                </span>
+                            </div>
+                            <div class="overflow-y-auto"
+                                style="max-height: 350px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
+                                <a
+                                    class="group flex items-center gap-1 text-gray-500 hover:text-green-400 transition-colors duration-200 font-semibold">
+                                    <div style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: 100 * 100ms"
+                                        class="flex items-center gap-3 px-4 py-3  transition-colors duration-150 border-b border-white/5 last:border-0">
+                                        <div class="relative shrink-0">
+                                            <img loading="lazy" src="/images/episodes/episode-2.jpg" alt=""
+                                                alt="${ep.name}"
+                                                class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10" />
+                                        </div>
+                                        <div class="min-w-0">
+                                            <p class="text-sm font-medium text-white truncate leading-tight">Nombre del
+                                                Episodio</p>
+                                            <p class="text-xs text-gray-500 truncate">Episodio </p>
+                                        </div>
+                                        <div class="ml-auto text-xs text-gray-600 font-mono tracking-wide">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="icon icon-tabler icons-tabler-outline icon-tabler-world-search">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M21 12a9 9 0 1 0 -9 9" />
+                                                <path d="M3.6 9h16.8" />
+                                                <path d="M3.6 15h7.9" />
+                                                <path d="M11.5 3a17 17 0 0 0 0 18" />
+                                                <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" />
+                                                <path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                                <path d="M20.2 20.2l1.8 1.8" />
+                                            </svg>
+
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </main>
+
+        <script type="module" defer src="/src/main.js"></script>
+</body>
+
+</html>

@@ -1,9 +1,4 @@
-import { router } from "./routes/index";
+import './styles/style.css';
+import { contentMain } from './components/main';
 
-window.addEventListener('hashchange', async () => {
-    await router();
-});
-
-window.addEventListener('DOMContentLoaded', async () => {
-    await router();
-});
+document.querySelector('#contentMain').innerHTML = contentMain();
