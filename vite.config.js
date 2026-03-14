@@ -12,9 +12,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        characters: resolve(__dirname, 'src/characters/index.html'),
-        episodes: resolve(__dirname, 'src/episodes/index.html'),
-        character: resolve(__dirname, 'src/character/index.html'),
+        characters: resolve(__dirname, 'src/pages/characters/index.html'),
+        episodes: resolve(__dirname, 'src/pages/episodes/index.html'),
+        character: resolve(__dirname, 'src/pages/character/index.html'),
       },
     },
     outDir: 'dist',

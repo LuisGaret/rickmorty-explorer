@@ -1,53 +1,8 @@
-<!doctype html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8" />
-    <base href="/" />
-
-    <meta name="google-site-verification" content="uWpnHxh3xaAN1XOE7_QykiynnBt1aryyrchHRc_0xqA" />
-    <meta name="robots" content="index, follow" />
-
-    <meta property="og:title" content="Rick&Morty Explorer" />
-    <meta property="og:description" content="Explora personajes, episodios y ubicaciones de Rick y Morty." />
-    <meta property="og:image"
-        content="https://rickmorty-explorer-iota.vercel.apphttps://rickmorty-explorer-iota.vercel.app/images/icons/logo.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rickmorty-explorer-iota.vercel.app/" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Rick&Morty Explorer" />
-    <meta name="twitter:description" content="Explora personajes, episodios y ubicaciones de Rick y Morty." />
-    <meta name="twitter:image" content="images/icons/logo60x60.png" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="application-name" content="Rick&Morty Explorer" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="mobile-web-app-capable" content="yes" />
-
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Rick&Morty Explorer" />
-    <meta name="author" content="Marco Antonio Evangelista Armenta" />
-    <meta name="keywords"
-        content="Rick&Morty, Rick and Morty, Rick y Morty, personajes de Rick y Morty, episodios de Rick y Morty, ubicaciones de Rick y Morty, datos curiosos de Rick y Morty, imágenes de Rick y Morty, serie animada, aplicación web , characters of Rick and Morty, episodes of Rick and Morty, locations of Rick and Morty, curiosities of Rick and Morty, images of Rick and Morty, animated series, web application" />
-    <meta name="description"
-        content="Rick&Morty Explorer es una aplicación web que te permite explorar el universo de Rick y Morty, con información detallada sobre personajes, episodios y ubicaciones. Descubre datos curiosos, imágenes y más sobre tus personajes favoritos de la serie animada." />
-    <link rel="icon" type="image/png" href="images/icons/logo60x60.png" />
-    <link rel="shortcut icon" href="/images/icons/shortcut.jpeg" type="image/x-icon">
-    <link rel="canonical" href="https://rickmorty-explorer-iota.vercel.app/" />
-    <link rel="dns-prefetch" href="https://rickandmortyapi.com">
-    <link rel="preconnect" href="https://rickandmortyapi.com">
-
-    <title>Rick&Morty Explorer</title>
-</head>
-
-<body>
-    <header class="sticky top-0 z-50 bg-gray-950/50 backdrop-blur-md border-b border-gray-800/60">
-        <main>
+export const contentCharacter = () => {
+  return `
             <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
                 <div class="max-w-6xl mx-auto mb-10 flex justify-between">
-                    <a href="src/characters/"
+                    <a href="src/pages/characters/"
                         class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
                         <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
                         Characters
@@ -57,7 +12,7 @@
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-gray-900 ">
                         <div class=" lg:col-span-4 relative overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-900 transition-all duration-1900 cursor-pointer"
                             style="min-height: 280px;">
-                            <img src="https://rickandmortyapi.com/api/character/avatar/209.jpeg" alt="${character.name}"
+                            <img src="https://rickandmortyapi.com/api/character/avatar/209.jpeg" alt=""
                                 class="absolute inset-0 w-full h-full object-cover contrast-125 opacity-80" />
                             <div
                                 class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
@@ -134,7 +89,7 @@
                                             <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">FOTO
                                             </p>
                                             <img src="https://rickandmortyapi.com/api/character/avatar/209.jpeg"
-                                                alt="${character.name}.${imgQualityType}"
+                                                alt=""
                                                 class="w-20 h-auto object-cover rounded-lg" loading="lazy" />
                                         </div>
                                     </div>
@@ -168,7 +123,7 @@
                                         class="flex items-center gap-3 px-4 py-3  transition-colors duration-150 border-b border-white/5 last:border-0">
                                         <div class="relative shrink-0">
                                             <img loading="lazy" src="/images/episodes/episode-2.jpg" alt=""
-                                                alt="${ep.name}"
+                                                alt=""
                                                 class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10" />
                                         </div>
                                         <div class="min-w-0">
@@ -200,9 +155,5 @@
             </div>
             </div>
             </div>
-        </main>
-
-        <script type="module" defer src="/src/main.js"></script>
-</body>
-
-</html>
+    `;
+};

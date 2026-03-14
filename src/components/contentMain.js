@@ -32,7 +32,7 @@ export const contentMain = () => {
             </p>
             <div class="flex gap-3 mt-8">
               <!-- Card Personajes -->
-              <a href="src/characters/" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
+              <a href="src/pages/characters/" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
   border border-white/10 bg-white/3 backdrop-blur-sm
   hover:border-white/25 hover:bg-white/[0.07]
   transition-all duration-300">
@@ -58,7 +58,7 @@ export const contentMain = () => {
               </a>
 
               <!-- Card Episodios -->
-              <a href="src/episodes/" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
+              <a href="src/pages/episodes/" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
   border border-white/10 bg-white/3 backdrop-blur-sm
   hover:border-white/25 hover:bg-white/[0.07]
   transition-all duration-300">

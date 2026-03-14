@@ -1,9 +1,9 @@
 export const contentHeader = () => {
   return `
         <nav id="nav-header">
-            <ul class="flex flex-col sm:flex-row items-center justify-between gap-6 px-4 pt-5 m-6">
+            <ul class="flex flex-col sm:flex-row items-center justify-between gap-6 px-4 pt-5">
                 <li>
-                    <a href="/" class="flex items-center gap-3 no-underline">
+                    <a href="/" class="flex items-center gap-3 no-underline m-3">
                         <img src="./images/icons/logo60x60.png" alt="Logo" class="w-10 h-10 object-contain"
                             id="img-logo">
                         <div class="flex flex-col leading-tight">
@@ -19,13 +19,13 @@ export const contentHeader = () => {
                         <span
                             class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="src/characters/" id="charactersLink"
+                    <a href="src/pages/characters/" id="charactersLink"
                         class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
                         Personajes
                         <span
                             class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-px bg-green-400 group-hover:w-full transition-all duration-300"></span>
                     </a>
-                    <a href="src/episodes/" id="episodesLink"
+                    <a href="src/pages/episodes/" id="episodesLink"
                         class="group py-1 lg:text-lg text-sm-link md:text-md relative px-1 font-semibold text-gray-400 hover:text-green-400 transition-colors duration-200 tracking-widest uppercase">
                         Episodios
                         <span
