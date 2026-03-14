@@ -18,7 +18,7 @@ ${resultPagination(true, episodes, page, "episodes")}
 <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4 px-8 lg:px-16 pb-16">
 ${episodes.results.map((episode, i) => `
 
-    <a href="#/episode/${episode.id}" class="group relative block overflow-hidden rounded-xl bg-[#0e0e0e]
+    <a class="group relative block overflow-hidden rounded-xl bg-[#0e0e0e]
              border border-white/4 transition-all duration-500
               hover:-translate-y-2"
       style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: ${i * 40}ms">
@@ -40,21 +40,6 @@ ${episodes.results.map((episode, i) => `
           text-[2rem] text-white/30 group-hover:text-white/80
           transition-all duration-700 tracking-tighter" style="font-variant-numeric: tabular-nums">
           ${episode.id.toString().padStart(2, '0')}
-        </div>
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="relative flex items-center justify-center
-            w-11 h-11 rounded-full
-            bg-white/8 backdrop-blur-md border border-white/15
-            scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100
-            transition-all duration-350 ease-out
-            ,inset_0_1px_0_rgba(255,255,255,0.15)]">
-            <div class="absolute inset-0 rounded-full border border-white/10
-              scale-100 group-hover:scale-[1.5] group-hover:opacity-0
-              transition-all duration-700 ease-out"></div>
-            <svg class="w-4 h-4 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
         </div>
         <div class="absolute inset-0 pointer-events-none opacity-[0.02]" style="background-image: repeating-linear-gradient(
             0deg, transparent, transparent 2px, rgba(255,255,255,0.5) 2px, rgba(255,255,255,0.5) 3px

@@ -49,13 +49,9 @@ export const router = async () => {
             render = (await import("../pages/episodes.js")).Episodes;
             break;
 
-        case "/episode/:id":
-            render = (await import("../pages/episode.js")).Episode;
-            break;
-
         default:
             showLayouts = false;
-            render = (await import("../pages/Error404.js")).Error404;
+            render = (await import("../pages/home.js"));
     }
 
 

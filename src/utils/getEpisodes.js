@@ -22,7 +22,6 @@ export const getEpisodes = async (endpoint = "", retries = 3) => {
       }
 
       if (!response.ok) {
-      (await import("../components/solvinCheck")).solvinSpin();
         throw new Error(response.status);
       }
 
@@ -32,7 +31,6 @@ export const getEpisodes = async (endpoint = "", retries = 3) => {
       // evita cache roto
       cache.delete(endpoint); 
       console.error("Error fetching data:", error);
-      (await import("../components/solvinCheck")).solvinSpin();
       return null;
     }
   })();

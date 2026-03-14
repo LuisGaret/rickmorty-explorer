@@ -22,7 +22,6 @@ export const getCharacters = async (endpoint = "", retries = 3) => {
     }
 
     if (!response.ok) {
-      (await import("../components/solvinCheck")).solvinSpin();
       throw new Error(response.status);
     }
 
@@ -33,7 +32,6 @@ export const getCharacters = async (endpoint = "", retries = 3) => {
     return data;
 
   } catch (error) {
-    (await import("../components/solvinCheck")).solvinSpin();
     console.error("Error fetching data:", error);
     return null;
   }

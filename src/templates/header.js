@@ -53,22 +53,6 @@ export const Header = () => {
             class=" shrink-0 items-center gap-2 px-5 py-3 text-gray-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 text-sm font-semibold tracking-widest uppercase cursor-pointer">
             Search
           </button>
-
-           <div id="li-time" class="flex items-center justify-center"><button type="button"
-          class="inline-flex cursor-not-allowed items-center rounded-md  px-2 py-2 text-sm leading-6 font-semibold text-white transition duration-150"
-          disabled="">
-          <svg xmlns="http://www.w3.org/2000/svg" 
-          width="24" 
-          height="24" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          stroke="currentColor" 
-          stroke-width="2" 
-          stroke-linecap="round" 
-          stroke-linejoin="round" 
-          class="mr-2 size-5 animate-none text-white" icon icon-tabler icons-tabler-outline icon-tabler-refresh icon icon-tabler icons-tabler-outline icon-tabler-world-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M20.946 12.99a9 9 0 1 0 -9.46 7.995" /><path d="M3.6 9h16.8" /><path d="M3.6 15h13.9" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a16.997 16.997 0 0 1 2.311 12.001" /><path d="M15 19l2 2l4 -4" /></svg>
-          </div>
-
           </div>
     </li>
 

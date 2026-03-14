@@ -1,6 +1,5 @@
 import { getHash } from "../utils/getHash";
 import { getCharacters } from "../utils/getCharacters";
-import { Error404 } from "./Error404";
 import { resultPagination } from "../utils/pagination";
 
 export const Characters = async () => {
@@ -24,7 +23,7 @@ export const Characters = async () => {
   }
 
   if (!characters?.results) {
-    return Error404();
+    return window.location.hash = '/';
   }
 
   const view = `
