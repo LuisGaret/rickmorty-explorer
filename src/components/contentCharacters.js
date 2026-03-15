@@ -4,14 +4,13 @@ import imgRick from '../../public/images/home/home-bg.jpg';
 
 function getPage() {
   const hash = window.location.hash;
-  const s = hash.split('=');
-  if (s[0] === '#?page') {
-    const url = hash.replace('#?page=', '');
-    console.log(url);
-    return Number(url) || 1;
-  } else if (s[0] === '#?name') {
+  const name = hash.split('=');
+  if (name[0] === '#?name') {
     const url = hash.replace('#?name=', '');
-    return url || 'rick';
+    return url || 1;
+  } else {
+    const url = hash.replace('#?page=', '');
+    return Number(url) || 3;
   }
 }
 
@@ -26,7 +25,6 @@ function pagination(info) {
   document.querySelector('.pagination').innerHTML = contentPagination(
     prevPage,
     nextPage,
-    getPage() || 1,
     info.pages
   );
 }
@@ -90,15 +88,14 @@ function renderCharacters(characters) {
 export async function loadCharacters() {
   try {
     const page = getPage();
-    let API_URL;
-    if (typeof getPage() === 'number') {
-      API_URL = `https://rickandmortyapi.com/api/character/?page=${page}`;
-    } else if (typeof getPage() === 'string') {
-      API_URL = `https://rickandmortyapi.com/api/character/?name=${page}`;
-    } else {
-      API_URL = `https://rickandmortyapi.com/api/character/?page=${page}`;
-    }
+    const API_URL =
+      typeof page === 'number'
+        ? `https://rickandmortyapi.com/api/character/?page=${page}`
+        : `https://rickandmortyapi.com/api/character/?name=${page}`;
+
     const response = await fetchWithRetry(API_URL);
+    // si recibe null retorna
+    if (!response) return;
     const { results, info } = await response.json();
 
     renderCharacters(results);

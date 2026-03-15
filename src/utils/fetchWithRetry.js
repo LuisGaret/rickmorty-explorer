@@ -1,4 +1,4 @@
-import { errorFetch } from '../components/messageFetch.js';
+import { errorFetch, characterNotFound } from '../components/messageFetch.js';
 // funcion para limitar las peticiones del usuario en la API
 
 export async function fetchWithRetry(url, retries = 6, delay = 4000) {
@@ -18,19 +18,24 @@ export async function fetchWithRetry(url, retries = 6, delay = 4000) {
         await new Promise((resolve) => setTimeout(resolve, delay));
         // multiplicar delay por cada loop
         delay *= 2;
+      } else if (response.status === 404) {
+        // borrar el hash de la ruta
+        history.replaceState(null, '', window.location.pathname);
+        characterNotFound();
+        return null;
       } else {
         throw new Error(`Error: ${response.status}`);
       }
     } catch (error) {
       const messages = [
-        `*BURP*... la API está colapsada, eso pasa cuando eres demasiado popular en el multiverso. Espera un momento mientras recalibro el portal...`,
-        `Ay no, ay no, ay no... Rick dijo que esto no iba a pasar pero aquí estamos, el servidor está completamente caído. Por favor espera...`,
-        `Los Ricks del Consejo han detectado una sobrecarga interdimensional en los servidores C-137. Estamos recalibrando los portales, esto tomará un momento...`,
-        `El Consejo de Ricks ha bloqueado temporalmente tus peticiones por exceso de solicitudes. Típico de ellos, siempre controlando todo. Reintentando en un momento...`,
-        `Morty, escucha, a veces la ciencia falla y los servidores también.bueno, técnicamente lo fue en la dimensión 35-C pero eso es otra historia. Reintentando...`,
-        `*BURP* ...el Señor Meeseeks no puede arreglar un error 429 Morty, nadie puede. Tenemos que esperar como simples mortales mientras el servidor se recupera...`,
-        `Interdimensional Cable está transmitiendo demasiados datos y colapsó el servidor. Bird Person lo predijo pero nadie le hizo caso. Reintentando la conexión...`,
-        `Rick aquí, y escucha bien porque solo lo diré una vez: demasiadas peticiones al servidor. Estoy trabajando en ello desde mi laboratorio, dame un segundo...`,
+        `*BURP*... la API colapsó, típico del multiverso. Recalibrando portal...`,
+        `Servidor C-137 caído, Rick lo predijo pero nadie escuchó. Espera...`,
+        `Sobrecarga interdimensional detectada por el Consejo. Reintentando...`,
+        `El Consejo de Ricks bloqueó tus peticiones, siempre controlando todo. Reintentando...`,
+        `Morty, a veces la ciencia falla y los servidores también. Reintentando...`,
+        `*BURP*... ni el Señor Meeseeks puede arreglar un error 429. Esperando...`,
+        `Interdimensional Cable saturó el servidor. Bird Person lo predijo. Reintentando...`,
+        `Rick aquí, demasiadas peticiones al servidor. Trabajando en ello...`,
       ];
       console.warn(error);
       const message = messages[Math.floor(Math.random() * messages.length)];

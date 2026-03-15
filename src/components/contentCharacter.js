@@ -1,18 +1,26 @@
-export const contentCharacter = () => {
-  return `
+import { fetchWithRetry } from '../utils/fetchWithRetry';
+
+export const contentCharacter = async () => {
+  const hash = window.location.hash.replace('#?id=', '');
+  const API = `https://rickandmortyapi.com/api/character/${hash}`;
+
+  const response = await fetchWithRetry(API);
+  const results = await response.json();
+
+  const view = `
             <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
                 <div class="max-w-6xl mx-auto mb-10 flex justify-between">
                     <a href="src/pages/characters/"
-                        class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-50">
+                        class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-green-500 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-auto">
                         <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-                        Characters
+                        ver Todos los personajes
                     </a>
                 </div>
                 <div class="max-w-6xl mx-auto">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-gray-900 ">
                         <div class=" lg:col-span-4 relative overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-900 transition-all duration-1900 cursor-pointer"
                             style="min-height: 280px;">
-                            <img src="https://rickandmortyapi.com/api/character/avatar/209.jpeg" alt=""
+                            <img src="${results.image}" alt=""
                                 class="absolute inset-0 w-full h-full object-cover contrast-125 opacity-80" />
                             <div
                                 class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
@@ -27,7 +35,7 @@ export const contentCharacter = () => {
                                         <div class="mb-2 overflow-hidden">
                                             <h1
                                                 class="text-[clamp(2rem,3vw,8rem)] font-black text-white leading-none tracking-tighter uppercase mix-blend-difference">
-                                                nombre
+                                                ${results.name}
                                             </h1>
                                         </div>
                                     </div>
@@ -38,7 +46,7 @@ export const contentCharacter = () => {
 
                                             <div class="flex items-center gap-2">
                                                 <span class="relative flex w-1.5 h-1.5">
-                                                    status
+                                                    ${results.status}
                                                 </span>
                                             </div>
                                         </div>
@@ -46,32 +54,45 @@ export const contentCharacter = () => {
                                         <div class="flex flex-col gap-1">
                                             <span
                                                 class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">Species</span>
-                                            <span class="text-sm text-white font-bold">especie</span>
+                                            <span class="text-sm text-white font-bold">                                                    
+                                            ${results.species}
+                                            </span>
                                         </div>
                                     </div>
 
                                     <div class="grid grid-cols-2 gap-4">
                                         <div class="flex flex-col gap-1">
                                             <span
-                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">GÉNERO</span>
-                                            <span class="text-sm text-white font-bold">Género</span>
+                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">
+                                            GÉNERO
+                                            </span>
+                                            <span class="text-sm text-white font-bold">
+                                            ${results.gender}
+                                            </span>
                                         </div>
                                         <div class="flex flex-col gap-1">
                                             <span
                                                 class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">TIPO</span>
-                                            <span class="text-sm text-white font-bold">tipo</span>
+                                            <span class="text-sm text-white font-bold">
+                                            ${results.type}
+                                            </span>
                                         </div>
 
                                     </div>
                                     <div class="grid grid-cols-2 gap-4">
                                         <div class="flex flex-col gap-1">
-                                            <span class="text-sm text-white font-bold leading-snug">Origen</span>
-                                        </div>
+<span
+                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">ORIGEN</span>
+                                            <span class="text-sm text-white font-bold leading-snug">
+                                            ${results.origin.name}
+                                            </span>                                        </div>
 
                                         <div class="flex flex-col gap-1">
                                             <span
                                                 class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">UBICACIÓN</span>
-                                            <span class="text-sm text-white font-bold leading-snug">ubicación</span>
+                                            <span class="text-sm text-white font-bold leading-snug">
+                                            ${results.location.name}
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-2 gap-4">
@@ -80,7 +101,7 @@ export const contentCharacter = () => {
                                                 APARICIONES
                                             </p>
                                             <p class="text-7xl font-black text-white leading-none">
-                                                1</p>
+                                                ${results.episode.length}</p>
                                             <p class="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-1">
                                                 EPISODIOS
                                             </p>
@@ -88,7 +109,7 @@ export const contentCharacter = () => {
                                         <div class="lg:hidden">
                                             <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">FOTO
                                             </p>
-                                            <img src="https://rickandmortyapi.com/api/character/avatar/209.jpeg"
+                                            <img src="${results.image}"
                                                 alt=""
                                                 class="w-20 h-auto object-cover rounded-lg" loading="lazy" />
                                         </div>
@@ -102,17 +123,7 @@ export const contentCharacter = () => {
                                     -
                                     EPISODIOS</span>
                                 <span class="text-xs text-gray-300">
-                                    <button class="text-white-500 hover:text-green-500 cursor-pointer"
-                                        onClick="window.location.reload()">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="icon icon-tabler icons-tabler-outline icon-tabler-refresh">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
-                                            <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
-                                        </svg>
-                                    </button>
+
                                 </span>
                             </div>
                             <div class="overflow-y-auto"
@@ -132,20 +143,6 @@ export const contentCharacter = () => {
                                             <p class="text-xs text-gray-500 truncate">Episodio </p>
                                         </div>
                                         <div class="ml-auto text-xs text-gray-600 font-mono tracking-wide">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-world-search">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M21 12a9 9 0 1 0 -9 9" />
-                                                <path d="M3.6 9h16.8" />
-                                                <path d="M3.6 15h7.9" />
-                                                <path d="M11.5 3a17 17 0 0 0 0 18" />
-                                                <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" />
-                                                <path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                                                <path d="M20.2 20.2l1.8 1.8" />
-                                            </svg>
-
                                 </a>
                             </div>
                         </div>
@@ -156,4 +153,6 @@ export const contentCharacter = () => {
             </div>
             </div>
     `;
+
+  return view;
 };

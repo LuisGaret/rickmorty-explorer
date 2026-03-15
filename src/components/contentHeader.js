@@ -1,3 +1,5 @@
+import { characterNotFound } from './messageFetch';
+
 export const contentHeader = () => {
   return `
         <nav id="nav-header">
@@ -51,20 +53,39 @@ export const contentHeader = () => {
                             class=" shrink-0 items-center gap-2 px-5 py-3 text-gray-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 text-sm font-semibold tracking-widest uppercase cursor-pointer">
                             Buscar
                             </button>
+                            
                         </div>
+                        
                 </li>
+                
             </ul>
+            
         </nav>
+        
     `;
 };
 
 export function search() {
   const searchInput = document.querySelector('#searchInput');
-  searchInput.addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
-      console.log(
-        (window.location.href = `src/pages/characters/#?name=${e.srcElement.value}`)
-      );
+  const searchButton = document.querySelector('#searchButton');
+
+  searchInput.addEventListener('keydown', async (e) => {
+    if (e.key !== 'Enter') return;
+
+    const name = searchInput.value.trim();
+    if (!name) return;
+
+    // verificas antes de redirigir
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/character/?name=${name}`
+    );
+
+    if (response.status === 404) {
+      characterNotFound(); // muestras la alerta en la página actual
+      return; // no redirige
     }
+
+    // si existe, navegas
+    window.location.href = `/src/pages/characters/#?name=${name}`;
   });
 }
