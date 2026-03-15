@@ -94,7 +94,7 @@ export const contentMain = () => {
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
-              <input id="homeSearchInput" type="text" placeholder="Escribe un nombre ..." class="flex-1 bg-transparent py-4 text-white
+              <input id="searchInput" type="text" placeholder="Escribe un nombre ..." class="flex-1 bg-transparent py-4 text-white
       placeholder-white/40 outline-none text-sm" />
               <button id="homeSearchButton"
                 class="text-white hover:text-green-400 cursor-pointer font-bold text-lg transition">

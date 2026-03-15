@@ -1,5 +1,5 @@
 import '../styles/style.css';
-import { contentHeader } from '../components/contentHeader';
+import { contentHeader, search } from '../components/contentHeader';
 import { contentFooter } from '../components/contentFooter';
 import { hideLoader, loader } from '../utils/loaderSpin';
 import { loadCharacters } from '../components/contentCharacters';
@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
+  search();
   loadCharacters().then(() => {
     hideLoader();
   });

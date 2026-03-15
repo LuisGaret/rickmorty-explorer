@@ -45,12 +45,11 @@ export const contentHeader = () => {
                             </span>
 
                             <input id="searchInput" type="text" placeholder="Escribe el nombre del personaje..."
-                                class="flex-1 md:w-30 lg:w-100 sm:w-40 bg-transparent text-gray-200 placeholder-gray-500 px-3 py-3 text-sm outline-none" />
+                            class="flex-1 md:w-30 lg:w-100 sm:w-40 bg-transparent text-gray-200 placeholder-gray-500 px-3 py-3 text-sm outline-none" />
                             <div class="w-px h-6 bg-gray-700 shrink-0"></div>
-
                             <button id="searchButton"
-                                class=" shrink-0 items-center gap-2 px-5 py-3 text-gray-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 text-sm font-semibold tracking-widest uppercase cursor-pointer">
-                                Buscar
+                            class=" shrink-0 items-center gap-2 px-5 py-3 text-gray-400 hover:text-green-400 hover:bg-green-400/5 transition-all duration-200 text-sm font-semibold tracking-widest uppercase cursor-pointer">
+                            Buscar
                             </button>
                         </div>
                 </li>
@@ -58,3 +57,14 @@ export const contentHeader = () => {
         </nav>
     `;
 };
+
+export function search() {
+  const searchInput = document.querySelector('#searchInput');
+  searchInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      console.log(
+        (window.location.href = `src/pages/characters/#?name=${e.srcElement.value}`)
+      );
+    }
+  });
+}

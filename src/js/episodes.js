@@ -1,6 +1,6 @@
 import '../styles/style.css';
 import { contentEpisodes } from '../components/contentEpisodes';
-import { contentHeader } from '../components/contentHeader';
+import { contentHeader, search } from '../components/contentHeader';
 import { contentFooter } from '../components/contentFooter';
 import { hideLoader, loader } from '../utils/loaderSpin';
 
@@ -16,5 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
+  search();
   hideLoader();
 });
