@@ -45,11 +45,25 @@
 <body>
     <header class="sticky top-0 z-50 bg-gray-950/50 backdrop-blur-md border-b border-gray-800/60">
     </header>
-    <main></main>
+    <main>
+        <div role="alert" id="alert" class="alert alert-soft flex justify-between opacity-80 m-4"
+            style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay:200ms">
+            <span id="fetchAlert"></span>
+            <span class="loading loading-spinner loading-xs"></span>
+        </div>
+        <div class="pagination flex justify-between items-center px-8 md:px-10  lg:px-16 py-2"
+            style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay:200ms">
+
+        </div>
+        <section class="grid grid-cols-5 gap-4 p-4">
+
+        </section>
+    </main>
     <footer class=" bg-gray-900/60 border-t border-gray-800/60 backdrop-blur-md mt-10">
 
     </footer>
     <script type="module" defer src="/src/js/characters.js"></script>
+    <script type="module" defer src="/src/components/contentCharacters.js"></script>
 </body>
 
 </html>

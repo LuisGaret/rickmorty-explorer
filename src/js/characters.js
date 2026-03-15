@@ -1,12 +1,11 @@
 import '../styles/style.css';
-import { contentCharacters } from '../components/contentCharacters';
 import { contentHeader } from '../components/contentHeader';
 import { contentFooter } from '../components/contentFooter';
-import { spinLoader, loader } from '../utils/loaderSpin';
+import { hideLoader, loader } from '../utils/loaderSpin';
+import { loadCharacters } from '../components/contentCharacters';
 
 function InsertContent() {
   document.querySelector('header').innerHTML = contentHeader();
-  document.querySelector('main').innerHTML = contentCharacters();
   document.querySelector('footer').innerHTML = contentFooter();
 }
 
@@ -16,5 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
-  spinLoader();
+  loadCharacters().then(() => {
+    hideLoader();
+  });
 });

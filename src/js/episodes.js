@@ -2,7 +2,7 @@ import '../styles/style.css';
 import { contentEpisodes } from '../components/contentEpisodes';
 import { contentHeader } from '../components/contentHeader';
 import { contentFooter } from '../components/contentFooter';
-import { spinLoader, loader } from '../utils/loaderSpin';
+import { hideLoader, loader } from '../utils/loaderSpin';
 
 function InsertContent() {
   document.querySelector('header').innerHTML = contentHeader();
@@ -16,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('load', () => {
-  spinLoader();
+  hideLoader();
 });

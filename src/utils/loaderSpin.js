@@ -1,6 +1,6 @@
 export const loader = () => {
-  const loader = document.createElement('div');
-  loader.classList.add(
+  const loaderEl = document.createElement('div');
+  loaderEl.classList.add(
     'loader',
     'flex',
     'items-center',
@@ -19,14 +19,12 @@ export const loader = () => {
     'text-green-400'
   );
 
-  loader.appendChild(spinner);
-  document.body.prepend(loader);
+  loaderEl.appendChild(spinner);
+  document.body.prepend(loaderEl);
 };
 
-export function spinLoader() {
+export function hideLoader() {
   const loader = document.querySelector('.loader');
-  const spinner = document.querySelector('.loading');
-
+  if (!loader) return;
   loader.classList.add('hidden');
-  spinner.classList.add('hidden');
 }
