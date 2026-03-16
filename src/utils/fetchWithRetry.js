@@ -1,7 +1,7 @@
 import { errorFetch, characterNotFound } from '../components/messageFetch.js';
 // funcion para limitar las peticiones del usuario en la API
 
-export async function fetchWithRetry(url, retries = 6, delay = 4000) {
+export async function fetchWithRetry(url, retries = 6, delay = 2000) {
   //   intenta 3 veces el lopp (retries)
   for (let i = 0; i < retries; i++) {
     // atrapar el error y reintenta en caso de status 429

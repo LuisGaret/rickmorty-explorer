@@ -1,115 +1,101 @@
-import { contentPagination } from '../components/contentPagination';
+import { contentPagination } from './contentPagination';
+import { fetchWithRetry } from '../utils/fetchWithRetry';
+import imgRick from '../../public/images/home/home-bg.jpg';
 
-export const contentEpisodes = () => {
-  return /* html */ `
-    ${contentPagination()}
-    <div class="bg-gray-950 font-sans py-8">
-      <div class="grid grid-cols-3 gap-4 px-8 lg:px-16 pb-16">
+function getPage() {
+  const hash = window.location.hash;
+  const url = hash.replace('#?page=', '');
+  return Number(url) || 1;
+}
 
-        <div
-          class="group relative block overflow-hidden rounded-xl
-          border border-white/4 transition-all duration-500
-          hover:-translate-y-2" style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay:100ms">
-          <div class="relative overflow-hidden" style="aspect-ratio: 16/9;">
+// pagination
+function pagination(info) {
+  const next = info.next ? info.next.split('/') : null;
+  const nextPage = next ? next[5] : null;
 
-            <img
-              class="w-full h-full object-cover transition-all duration-700 ease-out"
-              alt=""
-              loading="lazy"
-              src="/images/episodes/episode-1.jpg"
-            />
+  const prev = info.prev ? info.prev.split('/') : null;
+  const prevPage = prev ? prev[5] : null;
 
-            <div
-              class="absolute inset-0 bg-linear-to-t
-              from-[#0e0e0e] via-[#0e0e0e]/40 to-transparent
-              pointer-events-none"
-            ></div>
+  document.querySelector('.pagination').innerHTML = contentPagination(
+    'episodes',
+    prevPage,
+    nextPage,
+    info.pages,
+    getPage()
+  );
+}
 
-            <div
-              class="absolute inset-0 bg-linear-to-br
-              from-white/3 to-transparent opacity-0
-              group-hover:opacity-100 transition-opacity duration-500
-              pointer-events-none"
-            ></div>
+// section del html
+const section = document.querySelector('section');
 
-            <div
-              class="absolute -bottom-1 -right-1 font-black leading-none
-              select-none pointer-events-none text-[4rem]
-              text-white/30 group-hover:text-white/80
-              transition-all duration-700 tracking-tighter"
-              style="font-variant-numeric: tabular-nums"
-            >
-            02
-            </div>
-            <div
-              class="absolute inset-0 pointer-events-none opacity-[0.02]"
-              style="background-image: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(255,255,255,0.5) 2px,
-                rgba(255,255,255,0.5) 3px
-              )"
-            ></div>
-          </div>
-          <div class="px-3 py-3">
+function crearEpisodes(episode) {
+  const card = document.createElement('article');
+  card.style =
+    'animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay:100ms';
+  card.title = `View: ${episode.name}`;
+  card.className = `group relative flex flex-col rounded-xl overflow-hidden border border-gray-800/80 bg-gray-900/60 backdrop-blur-sm hover:border-green-400/20 transition-all duration-300 hover:-translate-y-1.5`;
 
-            <div
-              class="h-px w-full mb-2.5"
-              style="background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255,255,255,0.08) 40%,
-                rgba(255,255,255,0.12) 50%,
-                rgba(255,255,255,0.08) 60%,
-                transparent
-              )"
-            ></div>
+  // imagen
+  const divImg = document.createElement('div');
+  divImg.className = 'relative overflow-hidden aspect-video';
+  divImg.innerHTML = `
+    <img loading="lazy"
+      class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110 saturate-90"
+      alt="${episode.name}"
+      src="/images/episodes/episode-${episode.id}.jpg"
+      onerror="setTimeout(() => { if(!this.dataset.retried){ this.dataset.retried='1'; this.src=this.src; } else { this.src='${imgRick}'; } },1000)" />
+    <div class="absolute inset-0 bg-linear-to-t from-gray-900 via-gray-900/10 to-transparent"></div>
 
-            <h3
-              class="text-white/90 text-[12px] font-semibold leading-snug
-              truncate mb-1.5 group-hover:text-white
-              transition-colors duration-300 tracking-tight"
-              style="font-feature-settings: 'ss01' 1"
-            >name</h3>
+  `;
 
-            <div
-              class="flex justify-between items-center gap-1.5
-              text-[9px] text-white/25 group-hover:text-white/35
-              transition-colors duration-300 tracking-wide
-              uppercase font-medium"
-            >
-
-              <span class="flex items-center gap-1">
-                <svg
-                  class="w-2.5 h-2.5 shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 6v6l4 2" />
-                </svg>
-                22 min
-              </span>
-              <span>1</span>
-            </div>
-          </div>
-          <div
-            class="absolute inset-0 rounded-xl pointer-events-none
-            overflow-hidden opacity-0 group-hover:opacity-100
-            transition-opacity duration-500"
-          >
-            <div
-              class="absolute -top-full left-0 right-0 h-full
-              bg-linear-to-b from-transparent via-white/2.5
-              to-transparent group-hover:translate-y-[200%]
-              transition-transform duration-1000 ease-out"
-            ></div>
-          </div>
-        </div>
-      </div>
+  // info
+  const divInfo = document.createElement('div');
+  divInfo.className = 'flex flex-col gap-2 px-4 pt-3 pb-4';
+  divInfo.innerHTML = `
+    <span class="font-bold text-white tracking-wide truncate text-sm group-hover:text-green-50 transition-colors duration-200">
+      ${episode.name}
+    </span>
+    <div class="flex items-center justify-between mt-1">
+      <span class="text-[10px] text-gray-500 tracking-widest uppercase">
+       ESTRENO: ${episode.air_date}
+      </span>
+      <span class="text-[10px] font-semibold text-white tracking-widest uppercase">
+        ${episode.episode}
+      </span>
     </div>
   `;
-};
+
+  card.append(divImg, divInfo);
+  return card;
+}
+function renderEpisodes(Episodes) {
+  section.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+
+  for (const episode of Episodes) {
+    const card = crearEpisodes(episode);
+    fragment.appendChild(card);
+  }
+  section.appendChild(fragment);
+}
+
+export async function loadEpisodes() {
+  try {
+    const page = getPage();
+    const API_URL = `https://rickandmortyapi.com/api/episode/?page=${page}`;
+
+    const response = await fetchWithRetry(API_URL);
+    // si recibe null retorna
+    if (!response) return;
+    const { results, info } = await response.json();
+
+    renderEpisodes(results);
+    pagination(info);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+window.addEventListener('hashchange', () => {
+  loadEpisodes();
+});

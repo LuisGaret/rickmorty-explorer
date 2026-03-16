@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html bg-gray-900>
 <html lang="es">
 
 <head>
@@ -43,30 +43,8 @@
 </head>
 
 <body>
-    <header class="sticky top-0 z-50 bg-gray-950/50 backdrop-blur-md border-b border-gray-800/60">
-        <main>
-            <div id="alertNoFound" class="toast toast-top toast-center hidden z-50">
-                <div role="alert" class="alert gap-2  bg-red-500/80 shadow-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 shrink-0 stroke-current" fill="none"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 14l2-2m0 0l2-2m-2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>No se encontró el personaje.</span>
-                </div>
-            </div>
-
-            <div role="alert" id="alert"
-                class="alert alert-soft flex justify-between text-green-400 opacity-80 m-4 border-gray-800 bg-gray-900/60  transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm"
-                style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay:200ms">
-                <span id="fetchAlert"></span>
-                <span class="loading loading-spinner loading-xs text-green-400"></span>
-            </div>
-            <div class="pagination flex justify-between items-center px-8 md:px-10  lg:px-16 py-2"
-                style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay:200ms">
-            </div>
-        </main>
-        <script type="module" defer src="/src/js/character.js"></script>
+    <main></main>
+    <script type="module" defer src="/src/js/character.js"></script>
 </body>
 
 </html>

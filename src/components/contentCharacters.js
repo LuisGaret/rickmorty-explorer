@@ -10,7 +10,7 @@ function getPage() {
     return url || 1;
   } else {
     const url = hash.replace('#?page=', '');
-    return Number(url) || 3;
+    return Number(url) || 1;
   }
 }
 
@@ -23,9 +23,11 @@ function pagination(info) {
   const prevPage = prev ? prev[5] : null;
 
   document.querySelector('.pagination').innerHTML = contentPagination(
+    'characters',
     prevPage,
     nextPage,
-    info.pages
+    info.pages,
+    getPage()
   );
 }
 

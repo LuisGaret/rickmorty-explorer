@@ -1,4 +1,33 @@
 export const contentMain = () => {
+  // array para mapearlo y no copiar y pegar tanto codigo
+  const characters = [
+    {
+      get: 'Rick',
+      name: 'Ricks',
+      photo: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+    },
+    {
+      get: 'Jerry',
+      name: 'Jerrys',
+      photo: 'https://rickandmortyapi.com/api/character/avatar/5.jpeg',
+    },
+    {
+      get: 'Beth',
+      name: 'Beths',
+      photo: 'https://rickandmortyapi.com/api/character/avatar/4.jpeg',
+    },
+    {
+      get: 'Summer',
+      name: 'Summers',
+      photo: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg',
+    },
+    {
+      get: 'Morty',
+      name: 'Mortys',
+      photo: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
+    },
+  ];
+
   return `
 <section class="py-6 relative min-h-screen overflow-hidden flex items-center" style="
   background-image:url('images/home/home-bg.jpg');
@@ -91,13 +120,16 @@ export const contentMain = () => {
         </h2>
         <div class="grid grid-cols-5 gap-2 ">
           <!-- Card characters -->
-          <a href="src/pages/characters/#?name=rick" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
-  border border-white/10 bg-white/3 backdrop-blur-sm
-  hover:border-white/25 hover:bg-white/[0.07]
-  transition-all duration-300">
+  ${characters
+    .map((character) => {
+      return `
+    <a href="src/pages/characters/#?name=${character.get}" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
+    border border-white/10 bg-white/3 backdrop-blur-sm
+    hover:border-white/25 hover:bg-white/[0.07]
+    transition-all duration-300">
             <!-- Imagen preview -->
             <div class="w-full aspect-video h-30 rounded-lg overflow-hidden bg-black/40">
-              <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Episodios" class="w-full h-full object-cover grayscale group-hover:grayscale-0
+              <img src="${character.photo}" alt="Episodios" class="w-full h-full object-cover group-hover:grayscale-0
       scale-105 group-hover:scale-110 transition-all duration-500" />
               <div
                 class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
@@ -108,103 +140,15 @@ export const contentMain = () => {
               <div class="flex flex-col gap-0.5">
                 <span
                   class="text-sm font-black text-white/70 group-hover:text-white tracking-tight transition-colors duration-300">
-                  Rick
+                 ${character.name}
                 </span>
               </div>
             </div>
           </a>
-          <a href="src/pages/characters/#?name=jerry" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
-  border border-white/10 bg-white/3 backdrop-blur-sm
-  hover:border-white/25 hover:bg-white/[0.07]
-  transition-all duration-300">
-            <!-- Imagen preview -->
-            <div class="w-full aspect-video h-30 rounded-lg overflow-hidden bg-black/40">
-              <img src="https://rickandmortyapi.com/api/character/avatar/5.jpeg
-" alt="Episodios" class="w-full h-full object-cover grayscale group-hover:grayscale-0
-      scale-105 group-hover:scale-110 transition-all duration-500" />
-              <div
-                class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
-              </div>
-            </div>
-            <!-- Info -->
-            <div class="flex items-center justify-center">
-              <div class="flex flex-col gap-0.5">
-                <span
-                  class="text-sm font-black text-white/70 group-hover:text-white tracking-tight transition-colors duration-300">
-                  Jerry
-                </span>
-              </div>
-            </div>
-          </a>
-          <a href="src/pages/characters/#?name=beth" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
-  border border-white/10 bg-white/3 backdrop-blur-sm
-  hover:border-white/25 hover:bg-white/[0.07]
-  transition-all duration-300">
-            <!-- Imagen preview -->
-            <div class="w-full aspect-video h-30 rounded-lg overflow-hidden bg-black/40">
-              <img src="https://rickandmortyapi.com/api/character/avatar/4.jpeg
-" alt="Episodios" class="w-full h-full object-cover grayscale group-hover:grayscale-0
-      scale-105 group-hover:scale-110 transition-all duration-500" />
-              <div
-                class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
-              </div>
-            </div>
-            <!-- Info -->
-            <div class="flex items-center justify-center">
-              <div class="flex flex-col gap-0.5">
-                <span
-                  class="text-sm font-black text-white/70 group-hover:text-white tracking-tight transition-colors duration-300">
-                  Beth
-                </span>
-              </div>
-            </div>
-          </a>
-          <a href="src/pages/characters/#?name=summer" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
-  border border-white/10 bg-white/3 backdrop-blur-sm
-  hover:border-white/25 hover:bg-white/[0.07]
-  transition-all duration-300">
-            <!-- Imagen preview -->
-            <div class="w-full aspect-video h-30 rounded-lg overflow-hidden bg-black/40">
-              <img src="https://rickandmortyapi.com/api/character/avatar/3.jpeg
-" alt="Episodios" class="w-full h-full object-cover grayscale group-hover:grayscale-0
-      scale-105 group-hover:scale-110 transition-all duration-500" />
-              <div
-                class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
-              </div>
-            </div>
-            <!-- Info -->
-            <div class="flex items-center justify-center">
-              <div class="flex flex-col gap-0.5">
-                <span
-                  class="text-sm font-black text-white/70 group-hover:text-white tracking-tight transition-colors duration-300">
-                  Summer
-                </span>
-              </div>
-            </div>
-          </a>
-          <a href="src/pages/characters/#?name=morty" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
-  border border-white/10 bg-white/3 backdrop-blur-sm
-  hover:border-white/25 hover:bg-white/[0.07]
-  transition-all duration-300">
-            <!-- Imagen preview -->
-            <div class="w-full aspect-video h-30 rounded-lg overflow-hidden bg-black/40">
-              <img src="https://rickandmortyapi.com/api/character/avatar/2.jpeg
-" alt="Episodios" class="w-full h-full object-cover grayscale group-hover:grayscale-0
-      scale-105 group-hover:scale-110 transition-all duration-500" />
-              <div
-                class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
-              </div>
-            </div>
-            <!-- Info -->
-            <div class="flex items-center text-center">
-              <div class="flex flex-col gap-0.5">
-                <span
-                  class="text-sm font-black text-white/70 group-hover:text-white tracking-tight transition-colors duration-300">
-                  Morty
-                </span>
-              </div>
-            </div>
-          </a>
+          `;
+    })
+    .join('')}
+  
         </div>
         <div class="flex items-center gap-3
     bg-black/40 border border-white rounded-xl px-4">

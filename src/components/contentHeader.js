@@ -1,4 +1,4 @@
-import { characterNotFound } from './messageFetch';
+import { search } from '../utils/search';
 
 export const contentHeader = () => {
   return `
@@ -64,28 +64,3 @@ export const contentHeader = () => {
         
     `;
 };
-
-export function search() {
-  const searchInput = document.querySelector('#searchInput');
-  const searchButton = document.querySelector('#searchButton');
-
-  searchInput.addEventListener('keydown', async (e) => {
-    if (e.key !== 'Enter') return;
-
-    const name = searchInput.value.trim();
-    if (!name) return;
-
-    // verificas antes de redirigir
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?name=${name}`
-    );
-
-    if (response.status === 404) {
-      characterNotFound(); // muestras la alerta en la página actual
-      return; // no redirige
-    }
-
-    // si existe, navegas
-    window.location.href = `/src/pages/characters/#?name=${name}`;
-  });
-}

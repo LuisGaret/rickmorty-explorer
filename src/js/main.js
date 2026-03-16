@@ -1,7 +1,7 @@
 import '../styles/style.css';
 import { contentMain } from '../components/contentMain';
 import { hideLoader, loader } from '../utils/loaderSpin';
-import { search } from '../components/contentHeader';
+import { search } from '../utils/search';
 
 function insertContent() {
   document.querySelector('main').innerHTML = contentMain();
