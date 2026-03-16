@@ -1,0 +1,4 @@
+export const API = {
+  episodes: 'https://rickandmortyapi.com/api/episode/',
+  characters: 'https://rickandmortyapi.com/api/character/',
+};
