@@ -40,3 +40,9 @@ export function search() {
     window.location.href = `/src/pages/characters/#?name=${name}`;
   });
 }
+
+// analityc en vercel
+// se importó en este proyecto para evitar
+// que se ejecute en otras páginas donde no es necesario
+import { inject } from '@vercel/analytics';
+inject();
