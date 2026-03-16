@@ -11,13 +11,15 @@ export const contentCharacter = async () => {
             <div class="min-h-screen bg-black px-4 font-mon py-5" id="div-character">
                 <div class="max-w-6xl mx-auto mb-10 flex justify-between">
                     <a href="src/pages/characters/"
-                        class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-green-500 bg-gray-900/60 text-gray-400 hover:text-green-400 hover:border-green-400/40 transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm w-auto">
-                        <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-                        ver Todos los personajes
-                    </a>
+                        class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-white/60 bg-white/13 backdrop-blur-sm
+  hover:border-white/25
+  transition-all duration-300" transition-all duration-200 text-sm backdrop-blur-sm ">
+                        <span class="group-hover:-translate-x-1 transition-transform duration-200 ">←</span>
+VER TODOS LOS PERSONAJES
+                        </a>
                 </div>
-                <div class="max-w-6xl mx-auto">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 border border-gray-900 ">
+                <div class="max-w-6xl mx-auto ">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 ">
                         <div class=" lg:col-span-4 relative overflow-hidden border-b lg:border-b-0 lg:border-r border-gray-900 transition-all duration-1900 cursor-pointer"
                             style="min-height: 280px;">
                             <img src="${results.image}" alt=""
@@ -31,7 +33,7 @@ export const contentCharacter = async () => {
                             <div class="p-6 border-b border-gray-900">
                                 <div class="space-y-5">
                                     <div class="flex flex-col gap-1">
-                                        <span class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">NOMBRE</span>
+                                        <span class="text-[10px] text-gray-300 tracking-[0.3em] uppercase">NOMBRE</span>
                                         <div class="mb-2 overflow-hidden">
                                             <h1
                                                 class="text-[clamp(2rem,3vw,8rem)] font-black text-white leading-none tracking-tighter uppercase mix-blend-difference">
@@ -42,7 +44,7 @@ export const contentCharacter = async () => {
                                     <div class="grid grid-cols-2 gap-4">
                                         <div class="flex flex-col gap-1">
                                             <span
-                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">Status</span>
+                                                class="text-[10px] text-gray-300 tracking-[0.3em] uppercase">Status</span>
 
                                             <div class="flex items-center gap-2">
                                                 <span class="relative flex w-1.5 h-1.5">
@@ -53,7 +55,7 @@ export const contentCharacter = async () => {
 
                                         <div class="flex flex-col gap-1">
                                             <span
-                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">Species</span>
+                                                class="text-[10px] text-gray-300 tracking-[0.3em] uppercase">Species</span>
                                             <span class="text-sm text-white font-bold">                                                    
                                             ${results.species}
                                             </span>
@@ -63,7 +65,7 @@ export const contentCharacter = async () => {
                                     <div class="grid grid-cols-2 gap-4">
                                         <div class="flex flex-col gap-1">
                                             <span
-                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">
+                                                class="text-[10px] text-gray-300 tracking-[0.3em] uppercase">
                                             GÉNERO
                                             </span>
                                             <span class="text-sm text-white font-bold">
@@ -72,9 +74,9 @@ export const contentCharacter = async () => {
                                         </div>
                                         <div class="flex flex-col gap-1">
                                             <span
-                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">TIPO</span>
+                                                class="text-[10px] text-gray-300 tracking-[0.3em] uppercase">TIPO</span>
                                             <span class="text-sm text-white font-bold">
-                                            ${results.type}
+                                            ${results.type || 'Desconocido'}
                                             </span>
                                         </div>
 
@@ -82,14 +84,14 @@ export const contentCharacter = async () => {
                                     <div class="grid grid-cols-2 gap-4">
                                         <div class="flex flex-col gap-1">
 <span
-                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">ORIGEN</span>
+                                                class="text-[10px] text-gray-300 tracking-[0.3em] uppercase">ORIGEN</span>
                                             <span class="text-sm text-white font-bold leading-snug">
                                             ${results.origin.name}
                                             </span>                                        </div>
 
                                         <div class="flex flex-col gap-1">
                                             <span
-                                                class="text-[10px] text-gray-500 tracking-[0.3em] uppercase">UBICACIÓN</span>
+                                                class="text-[10px] text-gray-300 tracking-[0.3em] uppercase">UBICACIÓN</span>
                                             <span class="text-sm text-white font-bold leading-snug">
                                             ${results.location.name}
                                             </span>
@@ -97,17 +99,17 @@ export const contentCharacter = async () => {
                                     </div>
                                     <div class="grid grid-cols-2 gap-4">
                                         <div class="">
-                                            <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">
+                                            <p class="text-[10px] text-gray-300 tracking-[0.3em] uppercase mb-1">
                                                 APARICIONES
                                             </p>
                                             <p class="text-7xl font-black text-white leading-none">
                                                 ${results.episode.length}</p>
-                                            <p class="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-1">
+                                            <p class="text-[10px] text-gray-300 tracking-[0.2em] uppercase mt-1">
                                                 EPISODIOS
                                             </p>
                                         </div>
                                         <div class="lg:hidden">
-                                            <p class="text-[10px] text-gray-500 tracking-[0.3em] uppercase mb-1">FOTO
+                                            <p class="text-[10px] text-gray-300 tracking-[0.3em] uppercase mb-1">FOTO
                                             </p>
                                             <img src="${results.image}"
                                                 alt=""
@@ -129,7 +131,7 @@ export const contentCharacter = async () => {
                             <div class="overflow-y-auto"
                                 style="max-height: 350px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
                                 <a
-                                    class="group flex items-center gap-1 text-gray-500 hover:text-green-400 transition-colors duration-200 font-semibold">
+                                    class="group flex items-center gap-1 text-gray-300 hover:text-green-400 transition-colors duration-200 font-semibold">
                                     <div style="animation: cardReveal 0.6s cubic-bezier(0.22,1,0.36,1) both; animation-delay: 100 * 100ms"
                                         class="flex items-center gap-3 px-4 py-3  transition-colors duration-150 border-b border-white/5 last:border-0">
                                         <div class="relative shrink-0">
@@ -140,7 +142,7 @@ export const contentCharacter = async () => {
                                         <div class="min-w-0">
                                             <p class="text-sm font-medium text-white truncate leading-tight">Nombre del
                                                 Episodio</p>
-                                            <p class="text-xs text-gray-500 truncate">Episodio </p>
+                                            <p class="text-xs text-gray-300 truncate">Episodio </p>
                                         </div>
                                         <div class="ml-auto text-xs text-gray-600 font-mono tracking-wide">
                                 </a>
