@@ -7,13 +7,13 @@ export const errorFetch = (content, response = false) => {
     <div id="alert"
      role="alert"
      aria-live="polite"
-     class="toast toast-center toast-middle z-50 m-4
-            transition-all duration-500
+     class="toast toast-center toast-middle z-50 
+            transition-all duration-500 
             opacity-90
           ">
   
   <div class="flex items-center justify-between gap-3
-              bg-base-100 shadow-xl border border-base-300
+              bg-base-100 shadow-xl border border-success/80
               rounded-box px-5 py-3.5 
               hover:shadow-2xl transition-shadow">
     
@@ -47,20 +47,35 @@ export const characterNotFound = () => {
   document.body.insertAdjacentHTML(
     'afterbegin',
     `
-      <div id="alertNoFound"
-     role="alert"
-     aria-live="polite"
-     class="toast toast-center toast-middle z-50 m-4">
-  <div class="flex items-center justify-between gap-3
-              bg-base-100 border border-base-300
-              rounded-box px-5 py-3.5 
-              ">
-    
-    <span 
-          class="text-sm font-medium text-base-content">
-          ❌
-          No se encontró el personaje
+<div
+  id="alertNoFound"
+  role="alert"
+  aria-live="polite"
+  class="toast toast-center toast-middle z-50
+         pointer-events-none opacity-0
+         transition-all duration-300 ease-out"
+>
+  <div class="flex items-center gap-3
+              bg-base-100 border border-error/80
+              shadow-lg rounded-xl px-4 py-3
+              pointer-events-auto">
+
+    <div class="shrink-0 w-8 h-8 rounded-full bg-error/10
+                flex items-center justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           class="w-4 h-4 text-error" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor"
+           stroke-width="2.5" stroke-linecap="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+    </div>
+
+    <span id="fetchAlert" class="text-sm font-medium text-base-content">
+      Lo siento Morty, este personaje no existe
     </span>
+
   </div>
 </div>
 `

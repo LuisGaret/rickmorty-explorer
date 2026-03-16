@@ -63,12 +63,17 @@ function crearCharacters(character) {
   const divSpans = document.createElement('div');
   divSpans.className = 'flex flex-col gap-1 px-4 pt-3 pb-4';
   divSpans.innerHTML = `
-   <span class="font-bold text-white tracking-wide truncate text-sm group-hover:text-green-50 transition-colors duration-200">
+   <span class="font-bold text-white tracking-wide truncate text-sm group-hover:text-green-50 transition-colors duration-200 uppercase">
     ${character.name}
    </span>
-   <span class="text-xs font-semibold text-green-400/80 tracking-widest uppercase group-hover:text-green-300 transition-colors duration-200">
-    ${character.species}
+   <div class="grid gap-1 md:flex md:justify-between">
+   <span class="text-xs font-semibold text-green-400/80 tracking-widest uppercase ">
+   ${character.species}
    </span> 
+   <span class="text-xs font-semibold text-white/50 tracking-widest uppercase">
+   ${character.episode.length > 1 ? `${character.episode.length} EPISODIOS` : `${character.episode.length} EPISODIO`}
+   </span> 
+   </div>
   `;
 
   // inyectar

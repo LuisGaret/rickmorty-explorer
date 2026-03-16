@@ -64,11 +64,11 @@ function crearEpisodes(episode) {
       ${episode.name}
     </span>
     <div class="flex items-center justify-between mt-1">
-      <span id="${episode.id}" class="text-[10px] text-green-500 cursor-pointer tracking-widest uppercase flex justify-between gap-1 items-center">
+      <span id="${episode.id}" class="text-[13px] text-green-500/80 cursor-pointer tracking-widest  flex justify-between gap-1 items-center  bg-white/5 hover:bg-white/15 border border-white/10 rounded-2xl p-2 ">
        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-users-group"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" /><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M17 10h2a2 2 0 0 1 2 2v1" /><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M3 13v-1a2 2 0 0 1 2 -2h2" /></svg>
        Participantes
       </span>
-      <span class="text-[10px] font-semibold text-white tracking-widest uppercase">
+      <span class="text-[13px] font-semibold text-white tracking-widest uppercase">
         ${episode.episode}
       </span>
     </div>

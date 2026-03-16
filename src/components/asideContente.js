@@ -6,14 +6,11 @@ export const asideContente = () => {
         <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
         <div class="drawer-side">
             <label for="my-drawer-5" aria-label="close sidebar" class="drawer-overlay"></label>
-            <ul class="menu min-h-full w-60 md:w-80 p-4 rounded-xl
-  border border-white/10 bg-white/3 backdrop-blur-sm
-  hover:border-white/25 hover:bg-white/[0.07]
-  transition-all duration-300">
-                <!-- Sidebar content here -->
-                <div id="charactersEpisodes" class="overflow-y-auto"
-                    style="scrollbar-color: #333 transparent; scrollbar-width: thin;">
-
+            <ul class="menu w-50 md:w-80 p-4 rounded-xl
+  border border-white/10 backdrop-blur-md
+  hover:border-white/25 
+  ">
+                <div id="charactersEpisodes">
                 </div>
             </ul>
         </div>

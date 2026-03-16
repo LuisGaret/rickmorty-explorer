@@ -2,27 +2,27 @@ export const contentMain = () => {
   // array para mapearlo y no copiar y pegar tanto codigo
   const characters = [
     {
-      get: 'Rick',
+      link: 'src/pages/characters/#?name=Rick',
       name: 'Ricks',
       photo: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
     },
     {
-      get: 'Jerry',
+      link: 'src/pages/characters/#?name=Jerry',
       name: 'Jerrys',
       photo: 'https://rickandmortyapi.com/api/character/avatar/5.jpeg',
     },
     {
-      get: 'Beth',
+      link: 'src/pages/characters/#?name=Beth',
       name: 'Beths',
       photo: 'https://rickandmortyapi.com/api/character/avatar/4.jpeg',
     },
     {
-      get: 'Summer',
+      link: 'src/pages/characters/#?name=Summer',
       name: 'Summers',
       photo: 'https://rickandmortyapi.com/api/character/avatar/3.jpeg',
     },
     {
-      get: 'Morty',
+      link: 'src/pages/characters/#?name=Morty',
       name: 'Mortys',
       photo: 'https://rickandmortyapi.com/api/character/avatar/2.jpeg',
     },
@@ -123,13 +123,13 @@ export const contentMain = () => {
   ${characters
     .map((character) => {
       return `
-    <a href="src/pages/characters/#?name=${character.get}" class="group flex-1 flex flex-col gap-3 p-4 rounded-xl
+    <a href="${character.link}" class="group flex-1 flex flex-col gap-3  md:p-4 lg:p-4 rounded-xl
     border border-white/10 bg-white/3 backdrop-blur-sm
     hover:border-white/25 hover:bg-white/[0.07]
     transition-all duration-300">
             <!-- Imagen preview -->
             <div class="w-full aspect-video h-30 rounded-lg overflow-hidden bg-black/40">
-              <img src="${character.photo}" alt="Episodios" class="w-full h-full object-cover group-hover:grayscale-0
+              <img src="${character.photo}" alt="Episodios" class="w-full h-full object-cover grayscale-50 group-hover:grayscale-0
       scale-105 group-hover:scale-110 transition-all duration-500" />
               <div
                 class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.15)_2px,rgba(0,0,0,0.15)_4px)]">
