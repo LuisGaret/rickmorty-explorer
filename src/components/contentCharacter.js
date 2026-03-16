@@ -24,7 +24,7 @@ export const contentCharacter = async () => {
        <a href="src/pages/characters/"
     class="group flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-800 bg-gray-900/60 text-gray-400 hover:border-white transition-all duration-200 text-sm font-semibold tracking-widest uppercase backdrop-blur-sm">
     <span class="group-hover:-translate-x-1 transition-transform duration-200">←</span>
-    Volver
+    Personajes
   </a>
                 </div>
                 <div class=" max-w-6xl mx-auto ">
@@ -137,7 +137,7 @@ export const contentCharacter = async () => {
             </span>
         </div>
         <div id="res" class="overflow-y-auto"
-            style="max-height: 450px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
+            style="max-height: 350px; scrollbar-color: #333 transparent; scrollbar-width: thin;">
 
             ${episodeList
               .map((ep) => {

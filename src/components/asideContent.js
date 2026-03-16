@@ -1,6 +1,6 @@
 import { API } from '../utils/APIS';
 import { fetchWithRetry } from '../utils/fetchWithRetry';
-export const asideContente = () => {
+export const asideContent = () => {
   return `
     <div class="drawer drawer-end z-90">
         <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
@@ -38,7 +38,7 @@ export const viewCharacters = async (ENDPOINT) => {
                             class="flex items-center gap-3 px-4 py-3  transition-colors duration-150 border-b border-white/5 last:border-0">
                             <div class="relative shrink-0">
                                 <img loading="lazy" src="${character.image}" alt="${character.name}"
-                                onerror="setTimeout(() => { if(!this.dataset.retried){ this.dataset.retried='1'; this.src=this.src; } else { this.src='${character.image}'; } },5000)"
+                                onerror="setTimeout(() => { if(!this.dataset.retried){ this.dataset.retried='1'; this.src=this.src; } else { this.src='${character.image}'; } },2000)"
                                     class="w-10 h-10 object-cover rounded-full ring-1 ring-white/10" />
                             </div>
                             <div class="min-w-0">

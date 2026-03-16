@@ -55,7 +55,7 @@ rickmorty-explorer/
 │       └── icons/
 └── src/
     ├── components/
-    │   ├── asideContente.js
+    │   ├── asideContent.js
     │   ├── contentCharacter.js
     │   ├── contentCharacters.js
     │   ├── contentEpisodes.js

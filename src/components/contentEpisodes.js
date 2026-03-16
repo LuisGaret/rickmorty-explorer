@@ -2,7 +2,7 @@ import { API } from '../utils/APIS';
 import { contentPagination } from './contentPagination';
 import { fetchWithRetry } from '../utils/fetchWithRetry';
 import imgRick from '../../public/images/home/home-bg.jpg';
-import { viewCharacters } from './asideContente';
+import { viewCharacters } from './asideContent';
 
 function getPage() {
   const hash = window.location.hash;

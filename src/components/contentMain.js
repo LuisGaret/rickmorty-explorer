@@ -53,11 +53,10 @@ export const contentMain = () => {
           </div>
         </a>
         <h1 class="font-black leading-[0.9] text-white tracking-tight" style="font-size: clamp(1.7rem, 1vw, 1rem);">
-          Viaja por el multiverso
+          Rick and Morty Explorer: Explora los personajes y episodios de la serie
         </h1>
         <p class="text-white/60 mt-6 text-sm leading-relaxed max-w-md">
-          Explora personajes, episodios y realidades alternativas
-          dentro del universo más impredecible de la televisión.
+          Sumérgete en el universo de Rick and Morty con esta aplicación que te permite explorar personajes, episodios y ubicaciones de la serie. Descubre detalles, curiosidades y navega entre dimensiones para conocer más sobre tus personajes favoritos.
         </p>
         <div class="flex gap-3 mt-8">
           <!-- Card Personajes -->
