@@ -1,5 +1,3 @@
-import { search } from '../utils/search';
-
 export const contentHeader = () => {
   return `
         <nav id="nav-header">

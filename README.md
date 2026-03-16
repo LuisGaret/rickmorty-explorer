@@ -1,8 +1,9 @@
-# Rick & Morty Explorer 
+# Rick & Morty Explorer V.2
 
-Una aplicación web interactiva para explorar personajes, episodios y ubicaciones del universo de Rick y Morty, construida con tecnologías modernas.
+Una aplicación web MPA construida con JavaScript vanilla, HTML, Tailwind CSS, DaysiUI y Vite, que consume la Rick and Morty API para explorar personajes y episodios.
 
 # Demo en vivo
+
 [rickmorty-explorer-iota.vercel.app](https://rickmorty-explorer-iota.vercel.app/)
 
 ## Características
@@ -15,14 +16,15 @@ Una aplicación web interactiva para explorar personajes, episodios y ubicacione
 - **Animaciones Fluidas**: Transiciones elegantes con Tailwind CSS
 - **Caché Inteligente**: Optimización de solicitudes API para mejor rendimiento
 
-##  Stack Tecnológico
+## Stack Tecnológico
 
 - **Frontend Framework**: Vanilla JavaScript (SPA)
 - **Bundler**: [Vite](https://vitejs.dev/)
 - **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **API**: [Rick and Morty API](https://rickandmortyapi.com/)
+- **Templates**: [DaisyUI](https://daisyui.com/)
 
-##  Instalación
+## Instalación
 
 ```bash
 # Clonar el repositorio
@@ -41,68 +43,73 @@ npm run build
 npm run preview
 ```
 
-##  Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
-public
-├── images/                 # Imágenes estáticas 
-│   ├── episodes
-src/
-├── main.js                 # Punto de entrada
-├── pages/                  # Vistas principales
-│   ├── home.js
-│   ├── characters.js
-│   ├── character.js
-│   ├── episodes.js
-│   ├── episode.js
-│   └── Error404.js
-├── routes/
-│   └── index.js           # Router SPA
-├── templates/             # Componentes reutilizables
-│   ├── header.js
-│   └── footer.js
-├── utils/                 # Funciones auxiliares
-│   ├── getCharacters.js   # Fetch de personajes
-│   ├── getEpisodes.js     # Fetch de episodios
-│   ├── getHash.js         # Manejo de rutas
-│   ├── resolveRoutes.js   # Resolución de rutas
-│   ├── pagination.js      # Componente de paginación
-│   ├── homeSearch.js      # Búsqueda en home
-│   ├── scroll.js          # Desplazamiento suave
-│   └── numRandom.js       # Utilidad de números aleatorios
-└── styles/
-    └── style.css          # Estilos globales
+rickmorty-explorer/
+├── index.html      #Página Principal
+├── public/
+│   └── images/
+│       ├── episodes/
+│       ├── home/
+│       └── icons/
+└── src/
+    ├── components/
+    │   ├── asideContente.js
+    │   ├── contentCharacter.js
+    │   ├── contentCharacters.js
+    │   ├── contentEpisodes.js
+    │   ├── contentFooter.js
+    │   ├── contentHeader.js
+    │   ├── contentMain.js
+    │   ├── contentPagination.js
+    │   └── messageFetch.js
+    ├── js/
+    │   ├── character.js
+    │   ├── characters.js
+    │   ├── episodes.js
+    │   └── main.js
+    ├── pages/
+    │   ├── character/
+    │   │   └── index.html
+    │   ├── characters/
+    │   │   └── index.html
+    │   └── episodes/
+    │       └── index.html
+    ├── styles/
+    │   └── style.css
+    └── utils/
+        ├── APIS.js
+        ├── fetchWithRetry.js
+        ├── loaderSpin.js
+        └── search.js
 ```
 
-##  Rutas Disponibles
+## Rutas Disponibles
 
-| Ruta | Descripción |
-|------|-------------|
-| `/` | Página de inicio |
-| `/characters/` | Lista de personajes (paginada) |
-| `/character/:id` | Detalle de un personaje |
-| `/episodes/` | Lista de episodios |
-| `/episode/:id` | Detalle de un episodio |
-| `/search/:name` | Búsqueda de personajes |
-| `/page/:id` | Paginación de personajes |
+| Ruta                | Descripción                    |
+| ------------------- | ------------------------------ |
+| `/`                 | Página de inicio               |
+| `/characters/`      | Lista de personajes (paginada) |
+| `/character/#?id=`  | Detalle de un personaje        |
+| `/episodes/#?page=` | Lista de episodios             |
+| `/search/#?name=`   | Búsqueda de personajes         |
+| `/page/#?page=`     | Paginación de personajes       |
 
-##  Características Principales
-
-### Sistema de Rutas
-El router SPA utiliza hash navigation para navegación sin recarga de página. Ver [`resolveRoutes`](src/utils/resolveRoutes.js).
-
-### Caché Inteligente
-Las funciones [`getCharacters`](src/utils/getCharacters.js) y [`getEpisodes`](src/utils/getEpisodes.js) implementan caché con manejo de rate limiting.
+## Características Principales
 
 ### Animaciones
+
 - Animaciones de aparición de tarjetas con retraso escalonado
 - Transiciones suaves al navegar
 - Efectos hover interactivos
+- Loader inteligente para detectar retrasos
 
 ### Búsqueda
-La [`homeSearch`](src/utils/homeSearch.js) permite buscar personajes desde la página de inicio.
 
-##  Diseño Visual
+La función [`search`](src/utils/search.js) permite buscar personajes desde la página de inicio.
+
+## Diseño Visual
 
 - **Tema**: Oscuro con acentos verde neón (#4ade80)
 - **Tipografía**: Fuentes personalizadas con tracking mejorado
@@ -112,51 +119,44 @@ La [`homeSearch`](src/utils/homeSearch.js) permite buscar personajes desde la p�
 ## 📱 Responsividad
 
 La aplicación es completamente responsiva:
+
 - **Mobile**: Grid de 2 columnas
 - **Tablet**: Grid de 3 columnas
 - **Desktop**: Grid de 5 columnas (personajes) / 4 columnas (episodios)
 
-##  Componentes Clave
+## Componentes Clave
 
-| Componente | Descripción |
-|------------|------------|
-| [Header](src/templates/header.js) | Navegación principal con búsqueda |
-| [Footer](src/templates/footer.js) | Pie de página con créditos |
-| [Pagination](src/utils/pagination.js) | Controles de paginación |
-| [scroll](src/utils/scroll.js) | Desplazamiento suave a detalles |
+| Componente                            | Descripción                       |
+| ------------------------------------- | --------------------------------- |
+| [Header](src/templates/header.js)     | Navegación principal con búsqueda |
+| [Footer](src/templates/footer.js)     | Pie de página con créditos        |
+| [Pagination](src/utils/pagination.js) | Controles de paginación           |
+| [scroll](src/utils/scroll.js)         | Desplazamiento suave a detalles   |
 
-##  Configuración Vite
+## Configuración Vite
 
 Ver [`vite.config.js`](vite.config.js) para la configuración de plugins y build.
 
-##  Dependencias
+## Dependencias
 
 ```json
-{
-  "devDependencies": {
-    "vite": "^7.3.1",
-    "prettier": "^3.8.1"
+"devDependencies": {
+    "prettier": "^3.8.1",
+    "vite": "^7.3.1"
   },
   "dependencies": {
-    "tailwindcss": "^4.1.18",
     "@tailwindcss/vite": "^4.1.18",
-    "nprogress": "^0.2.0"
+    "daisyui": "^5.5.19",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.1.18"
   }
-}
 ```
 
-##  Autor
+## Licencia
+
+MIT Licence
+
+## Autor
 
 **Marco Antonio Evangelista Armenta**  
 [@MarkoEv](https://github.com/MarkoEv)
-
-##  Licencia
-
-Todos los derechos reservados © 2026
-
-## 🔗 Enlaces Útiles
-
-- [Rick and Morty API](https://rickandmortyapi.com/)
-- [Documentación de Vite](https://vitejs.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-
