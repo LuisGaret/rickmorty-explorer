@@ -1,4 +1,5 @@
 import { characterNotFound } from '../components/messageFetch';
+import { API } from './APIS';
 
 export function search() {
   const searchInput = document.querySelector('#searchInput');
@@ -11,9 +12,7 @@ export function search() {
     if (!name) return;
 
     // verificar antes de redirigir
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?name=${name}`
-    );
+    const response = await fetch(`${API.characters}?name=${name}`);
 
     if (response.status === 404) {
       characterNotFound(); // mosttarr alerta
@@ -30,9 +29,7 @@ export function search() {
     if (!name) return;
 
     // verificar antes de redirigir
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?name=${name}`
-    );
+    const response = await fetch(`${API.characters}/?name=${name}`);
 
     if (response.status === 404) {
       characterNotFound(); // mosttarr alerta

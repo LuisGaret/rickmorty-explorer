@@ -1,6 +1,7 @@
 import { contentPagination } from './contentPagination';
 import { fetchWithRetry } from '../utils/fetchWithRetry';
 import imgRick from '../../public/images/home/home-bg.jpg';
+import { API } from '../utils/APIS';
 
 function getPage() {
   const hash = window.location.hash;
@@ -92,8 +93,8 @@ export async function loadCharacters() {
     const page = getPage();
     const API_URL =
       typeof page === 'number'
-        ? `https://rickandmortyapi.com/api/character/?page=${page}`
-        : `https://rickandmortyapi.com/api/character/?name=${page}`;
+        ? `${API.characters}?page=${page}`
+        : `${API.characters}?name=${page}`;
 
     const response = await fetchWithRetry(API_URL);
     // si recibe null retorna

@@ -4,6 +4,7 @@ import { contentFooter } from '../components/contentFooter';
 import { hideLoader, loader } from '../utils/loaderSpin';
 import { loadEpisodes } from '../components/contentEpisodes';
 import { search } from '../utils/search';
+import { asideContente } from '../components/asideContente';
 
 function InsertContent() {
   document.querySelector('header').innerHTML = contentHeader();
@@ -16,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
   search();
+  document.body.insertAdjacentHTML('afterbegin', asideContente());
+
   loadEpisodes().then(() => {
     hideLoader();
     document.querySelector('footer').innerHTML = contentFooter();

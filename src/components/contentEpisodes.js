@@ -1,6 +1,8 @@
+import { API } from '../utils/APIS';
 import { contentPagination } from './contentPagination';
 import { fetchWithRetry } from '../utils/fetchWithRetry';
 import imgRick from '../../public/images/home/home-bg.jpg';
+import { viewCharacters } from './asideContente';
 
 function getPage() {
   const hash = window.location.hash;
@@ -35,12 +37,18 @@ function crearEpisodes(episode) {
   card.title = `View: ${episode.name}`;
   card.className = `group relative flex flex-col rounded-xl overflow-hidden border border-gray-800/80 bg-gray-900/60 backdrop-blur-sm hover:border-green-400/20 transition-all duration-300 hover:-translate-y-1.5`;
 
+  card.addEventListener('click', async (e) => {
+    if (e.target.id) {
+      await viewCharacters(e.target.id);
+      document.getElementById('my-drawer-5').checked = true;
+    }
+  });
   // imagen
   const divImg = document.createElement('div');
   divImg.className = 'relative overflow-hidden aspect-video';
   divImg.innerHTML = `
     <img loading="lazy"
-      class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110 saturate-90"
+      class=" w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110 saturate-90"
       alt="${episode.name}"
       src="/images/episodes/episode-${episode.id}.jpg"
       onerror="setTimeout(() => { if(!this.dataset.retried){ this.dataset.retried='1'; this.src=this.src; } else { this.src='${imgRick}'; } },1000)" />
@@ -56,8 +64,9 @@ function crearEpisodes(episode) {
       ${episode.name}
     </span>
     <div class="flex items-center justify-between mt-1">
-      <span class="text-[10px] text-gray-500 tracking-widest uppercase">
-       ESTRENO: ${episode.air_date}
+      <span id="${episode.id}" class="text-[10px] text-green-500 cursor-pointer tracking-widest uppercase flex justify-between gap-1 items-center">
+       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-users-group"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" /><path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M17 10h2a2 2 0 0 1 2 2v1" /><path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M3 13v-1a2 2 0 0 1 2 -2h2" /></svg>
+       Participantes
       </span>
       <span class="text-[10px] font-semibold text-white tracking-widest uppercase">
         ${episode.episode}
@@ -82,7 +91,7 @@ function renderEpisodes(Episodes) {
 export async function loadEpisodes() {
   try {
     const page = getPage();
-    const API_URL = `https://rickandmortyapi.com/api/episode/?page=${page}`;
+    const API_URL = `${API.episodes}?page=${page}`;
 
     const response = await fetchWithRetry(API_URL);
     // si recibe null retorna

@@ -1,17 +1,18 @@
+import { API } from '../utils/APIS';
 import { fetchWithRetry } from '../utils/fetchWithRetry';
 
 export const contentCharacter = async () => {
   const hash = window.location.hash.replace('#?id=', '');
-  const API = `https://rickandmortyapi.com/api/character/${hash}`;
+  const ENDPOINT = `${API.characters}${hash}`;
 
-  const response = await fetchWithRetry(API);
+  const response = await fetchWithRetry(ENDPOINT);
   const results = await response.json();
 
   // Una sola petición con todos los IDs
   const episodeIds = results.episode.map((url) => url.split('/').pop());
   //   episodeIds = [1,2,3,4,] : episode/1,2,3,4,5,...
   const response2 = await fetchWithRetry(
-    `https://rickandmortyapi.com/api/episode/${episodeIds.join(',')}`
+    `${API.episodes}${episodeIds.join(',')}`
   );
   const episodes = await response2.json();
   // si es un solo episodio devuelve objeto, si son varios devuelve array
@@ -24,7 +25,7 @@ export const contentCharacter = async () => {
   hover:border-white/25
   transition-all duration-300" transition-all duration-200 text-sm backdrop-blur-sm ">
                         <span class=" group-hover:-translate-x-1 transition-transform duration-200 ">←</span>
-VER TODOS LOS PERSONAJES
+Personajes
                         </a>
                 </div>
                 <div class=" max-w-6xl mx-auto ">
