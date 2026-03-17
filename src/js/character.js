@@ -10,7 +10,7 @@ async function InsertContent() {
   document.querySelector('main').innerHTML = await contentCharacter();
   document.querySelector('footer').innerHTML = document.querySelector(
     'footer'
-  ).innerHTML = contentFooter();
+  ).innerHTML = contentFooter();saaq
 }
 
 document.addEventListener('DOMContentLoaded', () => {
