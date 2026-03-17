@@ -14,7 +14,7 @@ async function InsertContent() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  loader();
+  loader();a
   InsertContent();
 });
 
