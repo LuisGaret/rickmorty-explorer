@@ -1,4 +1,4 @@
-# Rick & Morty Explorer V.2
+# Rick & Morty Explorer API
 
 Una aplicación web MPA construida con JavaScript vanilla, HTML, Tailwind CSS, DaysiUI y Vite, que consume la Rick and Morty API para explorar personajes y episodios.
 
